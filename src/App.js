@@ -7,6 +7,9 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import './components/NavBar/NavBar.css';
+import PlaylistCreator from './components/PlaylistCreator/PlaylistCreator';
+import SimilarTracksPlaylist from './components/SimilarTracksPlaylist/SimilarTracksPlaylist';
+import SimilarArtistsPlaylist from './components/SimilarArtistsPlaylist/SimilarArtistsPlaylist';
 
 
 function App() {
@@ -38,16 +41,16 @@ function App() {
           
           <Switch>
               <Route path='/1click'>
-                  <Users />
+                  <PlaylistCreator />
               </Route>
               <Route path='/magic-playlist-tracks'>
-                  <Home />
+                  <SimilarTracksPlaylist />
               </Route>
               <Route path='/magic-playlist-artists'>
-                  
+                  <SimilarArtistsPlaylist />
               </Route>
               <Route path='/'>
-                  <About />
+                  <PlaylistCreator />
               </Route>
           </Switch>
           
@@ -57,21 +60,5 @@ function App() {
   );
 }
 
-function Home() {
-  return (
-      <div>
-          <h2>Home</h2>
-      </div>
-  )
-  ;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 export default App;
