@@ -24,7 +24,7 @@ function App() {
           <nav className='navigation'>
               <ul>
                   <li>
-                      <Link to='/1click'>1click playlist</Link>
+                      <Link to='/playlist-creator'>Playlist creator</Link>
                   </li>
                   <li><a>Magic Playlist</a>
                       <ul className='dropdown'>
@@ -43,7 +43,7 @@ function App() {
           </nav>
           
           <Switch>
-              <Route path='/1click'>
+              <Route path='/playlist-creator'>
                   <PlaylistCreator />
               </Route>
               <Route path='/magic-playlist-tracks'>

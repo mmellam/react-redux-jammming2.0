@@ -1,9 +1,9 @@
 import React from 'react';
-import { onClickGetAccessToken } from './ConnectButton';
+import { onClickGetAccessToken } from '../../util/spotify';
 
 const Start = () => {
-    const onClickRetrieveToken = (e) => {
-        onClickGetAccessToken(e);
+    const onClickRetrieveToken = () => {
+        onClickGetAccessToken();
         window.location = 'http://localhost:3000/';
     }
 

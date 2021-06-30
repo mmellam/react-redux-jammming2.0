@@ -1,24 +1,11 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-export const getAccessToken = createAsyncThunk(
-    'connectToSpotify/getAccessToken',
-    async () => {
-
-    }
-)
-
-
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const connectToSpotifySlice = createSlice({
     name: 'connectToSpotify',
     initialState: {
         connected: false
     },
-    extraReducers: {
-
-    }
-})
-
+    reducers: {}
+});
 
 export default connectToSpotifySlice.reducer;
