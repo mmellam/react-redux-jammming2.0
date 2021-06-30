@@ -10,7 +10,8 @@ import './components/NavBar/NavBar.css';
 import PlaylistCreator from './components/PlaylistCreator/PlaylistCreator';
 import SimilarTracksPlaylist from './components/SimilarTracksPlaylist/SimilarTracksPlaylist';
 import SimilarArtistsPlaylist from './components/SimilarArtistsPlaylist/SimilarArtistsPlaylist';
-
+import ConnectButton from './components/NavBar/ConnectButton';
+import Start from './components/NavBar/Start';
 
 function App() {
   return (  
@@ -35,7 +36,9 @@ function App() {
                           </li>
                       </ul>    
                   </li>
-                  <li><button>Connect to your Spotify Account</button></li>
+                  <li>
+                    <ConnectButton />
+                  </li>
               </ul>
           </nav>
           
@@ -48,6 +51,9 @@ function App() {
               </Route>
               <Route path='/magic-playlist-artists'>
                   <SimilarArtistsPlaylist />
+              </Route>
+              <Route path='/start'>
+                  <Start />
               </Route>
               <Route path='/'>
                   <PlaylistCreator />
