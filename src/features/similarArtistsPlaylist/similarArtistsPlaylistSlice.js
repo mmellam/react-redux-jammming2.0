@@ -29,9 +29,19 @@ const similarArtistsPlaylistSlice = createSlice({
     name: 'similarArtistsPlaylist',
     initialState: {
         topArtists: [],
+        selectedArtists: [],
         topArtistsPlaylist: []
     },
-    reducers: {},
+    reducers: {
+        toggleArtistSelection: (state, action) => {
+            const artist = state.topArtists.filter((artist) => artist.id === action.payload);
+            if (!state.selectedArtists.find((artist) => artist.id === action.payload)) {
+                state.selectedArtists.push(...artist);
+            } else {
+                state.selectedArtists = state.selectedArtists.filter((artist) => artist.id !== action.payload);
+            }
+        }
+    },
     extraReducers: {
         [getTopArtists.pending]: (state) => {
 
@@ -66,6 +76,8 @@ const similarArtistsPlaylistSlice = createSlice({
         }
     }
 });
+
+export const { toggleArtistSelection } = similarArtistsPlaylistSlice.actions;
 
 export const selectTopArtists = (state) => state.similarArtistsPlaylist.topArtists;
 export const selectTopArtistsPlaylist = (state) => state.similarArtistsPlaylist.topArtistsPlaylist;
