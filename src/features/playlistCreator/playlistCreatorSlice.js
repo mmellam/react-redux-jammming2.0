@@ -25,7 +25,17 @@ const playlistCreatorSlice = createSlice({
         failedToLoadResults: false,
         newPlaylist: []
     },
-    reducers: {},
+    reducers: {
+        addTrack: (state, action) => {
+            const track = state.searchResults.filter((track) => track.id === action.payload);
+            if (!state.newPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
+                state.newPlaylist.push(...track);
+            }
+        },
+        removeTrack: (state, action) => {
+            state.newPlaylist = state.newPlaylist.filter((track) => track.id !== action.payload);
+        }
+    },
     extraReducers: {
         [search.pending]: (state) => {
             state.isLoadingResults = true;
@@ -54,6 +64,9 @@ const playlistCreatorSlice = createSlice({
     
 });
 
+export const { addTrack, removeTrack } = playlistCreatorSlice.actions;
+
 export const selectSearchResults = (state) => state.playlistCreator.searchResults;
+export const selectNewPlaylist = (state) => state.playlistCreator.newPlaylist;
 
 export default playlistCreatorSlice.reducer;
