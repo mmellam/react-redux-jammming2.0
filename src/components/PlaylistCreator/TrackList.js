@@ -11,7 +11,7 @@ const TrackList = (props) => {
                     isRemoval={props.isRemoval} />
             })
         }
-    </div>
+        </div>
     );
 }
 
