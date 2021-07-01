@@ -17,15 +17,18 @@ const onClickGetAccessToken = () => {
     // check if access token is provided in URL
     if (accessTokenMatch && expiresInMatch) {
         accessToken = accessTokenMatch[1];
-        console.log(accessToken);
         const expiresIn = Number(expiresInMatch[1]);
-        // clear the access token and URL parameters
-        window.setTimeout(() => accessToken = '', expiresIn * 1000);
-        window.history.pushState('Access Token', null, '/');
         window.sessionStorage.accessToken = accessToken;
-        console.log(accessToken);
+        // clear the access token and URL parameters
+        window.setTimeout(() => accessToken = '', expiresIn);
+        window.history.pushState('Access Token', null, '/');
+        window.setTimeout(() => window.sessionStorage.accessToken = '', expiresIn);
         return accessToken;
     }
 };
 
-export { onClickGetAccessToken };
+const savePlaylistToSpotify = () => {
+
+}
+
+export { onClickGetAccessToken, savePlaylistToSpotify };
