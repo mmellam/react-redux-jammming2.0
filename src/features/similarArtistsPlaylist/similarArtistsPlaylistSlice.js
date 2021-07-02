@@ -20,9 +20,9 @@ export const getTopArtists = createAsyncThunk(
 
 export const getArtistBasedRecommendations = createAsyncThunk(
     'similarArtistsPlaylist/getArtistBasedRecommendations',
-    async () => {
+    async (queryString) => {
         const accessToken = window.sessionStorage.accessToken;
-        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_artists=4NHQUGzhtTLFvgF5SZesLK%2C0c6xIDDpzE81m2q797ordA`, {
+        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_artists=${queryString}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
 
@@ -141,6 +141,7 @@ export const {
 
 export const selectTopArtists = (state) => state.similarArtistsPlaylist.topArtists;
 export const selectTopArtistsPlaylist = (state) => state.similarArtistsPlaylist.topArtistsPlaylist;
+export const selectSelectedArtists = (state) => state.similarArtistsPlaylist.selectedArtists;
 export const selectLimitExceeded = (state) => state.similarArtistsPlaylist.limitExceeded;
 export const selectRecommendedTracksArtist = (state) => state.similarArtistsPlaylist.recommendedTracksArtist;
 
