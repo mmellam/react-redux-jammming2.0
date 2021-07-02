@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleArtistSelection } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
+import { toggleArtistSelection, checkLimitExceeded } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
 
 const Artist = (props) => {
     const dispatch = useDispatch();
 
     const onClickToggleArtistSelection = (e) => {
         dispatch(toggleArtistSelection(e.target.value));
+        dispatch(checkLimitExceeded());
     };
 
     return (

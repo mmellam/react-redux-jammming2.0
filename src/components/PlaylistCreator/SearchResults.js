@@ -1,12 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectSearchResults } from '../../features/playlistCreator/playlistCreatorSlice';
 import TrackList from './TrackList';
 
-const SearchResults = () => {
-    const searchResults = useSelector(selectSearchResults);
-
-    if (!searchResults.length) {
+const SearchResults = (props) => {
+    if (!props.tracks.length) {
         return (
             <div>
                 <h2>Results</h2>
@@ -17,7 +13,7 @@ const SearchResults = () => {
     return (
         <div>
             <h2>SearchResults</h2>
-            <TrackList tracks={searchResults} isRemoval={false} />
+            <TrackList tracks={props.tracks} isRemoval={false} />
         </div>
     );
 }

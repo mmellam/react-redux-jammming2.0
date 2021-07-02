@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectNewPlaylist } from '../../features/playlistCreator/playlistCreatorSlice';
+import { useDispatch } from 'react-redux';
 import TrackList from './TrackList';
 import { savePlaylist } from '../../features/playlistCreator/playlistCreatorSlice';
 
 
-const NewPlaylist = () => {
+const NewPlaylist = (props) => {
     const dispatch = useDispatch();
-    const newPlaylist = useSelector(selectNewPlaylist);
     const [playlistName, setPlaylistName] = useState('New Playlist');
 
     const handleNameChange = (e) => {
@@ -24,7 +22,7 @@ const NewPlaylist = () => {
         }
     };
     const onClickSavePlaylist = async () => {
-        const trackUris = newPlaylist.map(track => track.uri);
+        const trackUris = props.tracks.map(track => track.uri);
         dispatch(savePlaylist({ playlistName, trackUris }));
         setPlaylistName('New Playlist');
     };
@@ -33,7 +31,7 @@ const NewPlaylist = () => {
         <div>
             <input value={playlistName} onChange={handleNameChange} 
                 onFocus={handleFocus} onBlur={handleBlur} />
-            <TrackList tracks={newPlaylist} isRemoval={true} />
+            <TrackList tracks={props.tracks} isRemoval={true} />
             <button className="Playlist-save" onClick={onClickSavePlaylist}>SAVE TO SPOTIFY</button>
         </div>
     );

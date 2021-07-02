@@ -29,8 +29,10 @@ const similarArtistsPlaylistSlice = createSlice({
     name: 'similarArtistsPlaylist',
     initialState: {
         topArtists: [],
-        selectedArtists: [],
-        topArtistsPlaylist: []
+        selectedArtists: [], // should only hold 5 artists
+        recommendedTracksArtist: [], // results from Spotify API
+        topArtistsPlaylist: [],
+        limitExceeded: false // whether limit of 5 is exceeded or not
     },
     reducers: {
         toggleArtistSelection: (state, action) => {
@@ -39,6 +41,13 @@ const similarArtistsPlaylistSlice = createSlice({
                 state.selectedArtists.push(...artist);
             } else {
                 state.selectedArtists = state.selectedArtists.filter((artist) => artist.id !== action.payload);
+            }
+        },
+        checkLimitExceeded: (state) => {
+            if (!state.selectedArtists[5]) {
+                state.limitExceeded = false;
+            } else {
+                state.limitExceeded = true;
             }
         }
     },
@@ -77,9 +86,11 @@ const similarArtistsPlaylistSlice = createSlice({
     }
 });
 
-export const { toggleArtistSelection } = similarArtistsPlaylistSlice.actions;
+export const { toggleArtistSelection, checkLimitExceeded } = similarArtistsPlaylistSlice.actions;
 
 export const selectTopArtists = (state) => state.similarArtistsPlaylist.topArtists;
 export const selectTopArtistsPlaylist = (state) => state.similarArtistsPlaylist.topArtistsPlaylist;
+export const selectLimitExceeded = (state) => state.similarArtistsPlaylist.limitExceeded;
+export const selectRecommendedTracksArtist = (state) => state.similarArtistsPlaylist.recommendedTracksArtist;
 
 export default similarArtistsPlaylistSlice.reducer;
