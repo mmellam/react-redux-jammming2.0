@@ -1,17 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addTrack, removeTrack } from '../../features/playlistCreator/playlistCreatorSlice';
 
 const Track = (props) => {
     const dispatch = useDispatch();
 
     const onClickAddTrack = (e) => {
-        dispatch(addTrack(e.target.value));
-    }
+        dispatch(props.addTrack(e.target.value));
+    };
 
     const onClickRemoveTrack = (e) => {
-        dispatch(removeTrack(e.target.value));
-    }
+        dispatch(props.removeTrack(e.target.value));
+    };
 
     return (
         <div>

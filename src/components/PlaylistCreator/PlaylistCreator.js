@@ -5,6 +5,7 @@ import NewPlaylist from './NewPlaylist';
 import { useSelector } from 'react-redux';
 import { saveCreatedPlaylist, selectSearchResults } from '../../features/playlistCreator/playlistCreatorSlice';
 import { selectNewPlaylist } from '../../features/playlistCreator/playlistCreatorSlice';
+import { addTrack, removeTrack } from '../../features/playlistCreator/playlistCreatorSlice';
 
 const PlaylistCreator = () => {
     const searchResults = useSelector(selectSearchResults);
@@ -14,8 +15,8 @@ const PlaylistCreator = () => {
         <div>
             <h2>PlaylistCreator</h2>
             <SearchBar />
-            <SearchResults tracks={searchResults} />
-            <NewPlaylist tracks={newPlaylist} savePlaylist={saveCreatedPlaylist} />
+            <SearchResults tracks={searchResults} addTrack={addTrack} removeTrack={removeTrack} />
+            <NewPlaylist tracks={newPlaylist} savePlaylist={saveCreatedPlaylist} addTrack={addTrack} removeTrack={removeTrack} />
         </div>
     );
 }

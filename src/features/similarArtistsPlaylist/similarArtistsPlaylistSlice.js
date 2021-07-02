@@ -18,7 +18,21 @@ export const getTopArtists = createAsyncThunk(
     }
 );
 
+export const getArtistBasedRecommendations = createAsyncThunk(
+    'similarArtistsPlaylist/getArtistBasedRecommendations',
+    async () => {
+        const accessToken = window.sessionStorage.accessToken;
+        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_artists=4NHQUGzhtTLFvgF5SZesLK%2C0c6xIDDpzE81m2q797ordA`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
 
+            }
+        });
+        const responseJSON = await response.json();
+        console.log(responseJSON);
+        return responseJSON;
+    }
+);
 
 export const saveSimilarArtistsPlaylist = createAsyncThunk(
     'similarArtistsPlaylist/saveSimilarArtistsPlaylist',
@@ -33,7 +47,7 @@ const similarArtistsPlaylistSlice = createSlice({
         topArtists: [],
         selectedArtists: [], // should only hold 5 artists
         recommendedTracksArtist: [], // results from Spotify API
-        topArtistsPlaylist: [],
+        topArtistsPlaylist: [], // holds tracks selected by user
         limitExceeded: false // whether limit of 5 is exceeded or not
     },
     reducers: {
@@ -51,6 +65,15 @@ const similarArtistsPlaylistSlice = createSlice({
             } else {
                 state.limitExceeded = true;
             }
+        },
+        addTrackArtistPlaylist: (state, action) => {
+            const track = state.recommendedTracksArtist.filter((track) => track.id === action.payload);
+            if (!state.topArtistsPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
+                state.topArtistsPlaylist.push(...track);
+            }
+        },
+        removeTrackArtistPlaylist: (state, action) => {
+            state.topArtistsPlaylist = state.topArtistsPlaylist.filter((track) => track.id !== action.payload);
         }
     },
     extraReducers: {
@@ -74,13 +97,34 @@ const similarArtistsPlaylistSlice = createSlice({
         [getTopArtists.rejected]: (state, action) => {
 
         },
+        [getArtistBasedRecommendations.pending]: (state) => {
+
+        },
+        [getArtistBasedRecommendations.fulfilled]: (state, action) => {
+            //console.log(action.payload)
+            const recommendedTracksArtist = action.payload.tracks.map(track => {
+                return {
+                    id: track.id,
+                    name: track.name,
+                    artist: track.artists[0].name,
+                    album: track.album.name,
+                    uri: track.uri
+                }
+            });
+            state.recommendedTracksArtist = [...recommendedTracksArtist];
+            console.log(state.recommendedTracksArtist);
+
+        },
+        [getArtistBasedRecommendations.rejected]: (state, action) => {
+
+        },
 
         [saveSimilarArtistsPlaylist.pending]: (state) => {
 
         },
         [saveSimilarArtistsPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
-            //state.topArtistsPlaylist = [];
+            state.topArtistsPlaylist = [];
         },
         [saveSimilarArtistsPlaylist.rejected]: (state, action) => {
 
@@ -88,7 +132,12 @@ const similarArtistsPlaylistSlice = createSlice({
     }
 });
 
-export const { toggleArtistSelection, checkLimitExceeded } = similarArtistsPlaylistSlice.actions;
+export const { 
+    toggleArtistSelection,
+    checkLimitExceeded,
+    addTrackArtistPlaylist,
+    removeTrackArtistPlaylist 
+    } = similarArtistsPlaylistSlice.actions;
 
 export const selectTopArtists = (state) => state.similarArtistsPlaylist.topArtists;
 export const selectTopArtistsPlaylist = (state) => state.similarArtistsPlaylist.topArtistsPlaylist;

@@ -30,7 +30,8 @@ const NewPlaylist = (props) => {
         <div>
             <input value={playlistName} onChange={handleNameChange} 
                 onFocus={handleFocus} onBlur={handleBlur} />
-            <TrackList tracks={props.tracks} isRemoval={true} />
+            <TrackList tracks={props.tracks} isRemoval={true} 
+                addTrack={props.addTrack} removeTrack={props.removeTrack} />
             <button className="Playlist-save" onClick={onClickSavePlaylist}>SAVE TO SPOTIFY</button>
         </div>
     );
