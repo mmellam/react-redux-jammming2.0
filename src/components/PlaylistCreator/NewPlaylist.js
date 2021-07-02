@@ -27,7 +27,7 @@ const NewPlaylist = (props) => {
     };
 
     return (
-        <div>
+        <div className='new-playlist'>
             <input value={playlistName} onChange={handleNameChange} 
                 onFocus={handleFocus} onBlur={handleBlur} />
             <TrackList tracks={props.tracks} isRemoval={true} 

@@ -4,14 +4,14 @@ import TrackList from './TrackList';
 const SearchResults = (props) => {
     if (!props.tracks.length) {
         return (
-            <div>
+            <div className='search-results'>
                 <h2>Results</h2>
                 <p>No results</p>
             </div>
         )
     }
     return (
-        <div>
+        <div className='search-results'>
             <h2>SearchResults</h2>
             <TrackList tracks={props.tracks} isRemoval={false} addTrack={props.addTrack} removeTrack={props.removeTrack} />
         </div>

@@ -26,7 +26,7 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
+        <div className='search-bar'>
             <input placeholder='Enter A Song, Album, or Artist' onChange={onChangeHandler}
                 onKeyDown={handleEnter} autoFocus/>
             <button onClick={onClickSearch} type='button'>SEARCH</button>

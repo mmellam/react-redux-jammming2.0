@@ -26,7 +26,7 @@ const TopArtists = () => {
     };
 
     return (
-        <div>
+        <div className='top-artists'>
             <h2>TopArtists</h2>
             <TopArtistsList artists={topArtists}/>
             {limitExceeded ? <h3>Please select a maximum of 5 artists</h3> : null}

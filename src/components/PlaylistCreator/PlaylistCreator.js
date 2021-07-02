@@ -1,4 +1,5 @@
 import React from 'react';
+import './playlistCreator.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import NewPlaylist from './NewPlaylist';
@@ -12,7 +13,7 @@ const PlaylistCreator = () => {
     const newPlaylist = useSelector(selectNewPlaylist);
 
     return (
-        <div>
+        <div className='playlist-creator'>
             <h2>PlaylistCreator</h2>
             <SearchBar />
             <SearchResults tracks={searchResults} addTrack={addTrack} removeTrack={removeTrack} />
