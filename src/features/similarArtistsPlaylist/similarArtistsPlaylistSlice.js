@@ -20,8 +20,8 @@ export const getTopArtists = createAsyncThunk(
 
 
 
-export const savePlaylist = createAsyncThunk(
-    'similarArtistsPlaylist/savePlaylist',
+export const saveSimilarArtistsPlaylist = createAsyncThunk(
+    'similarArtistsPlaylist/saveSimilarArtistsPlaylist',
     async (playlistToCreate) => {
         savePlaylistToSpotify(playlistToCreate);
     }
@@ -75,14 +75,14 @@ const similarArtistsPlaylistSlice = createSlice({
 
         },
 
-        [savePlaylist.pending]: (state) => {
+        [saveSimilarArtistsPlaylist.pending]: (state) => {
 
         },
-        [savePlaylist.fulfilled]: (state, action) => {
+        [saveSimilarArtistsPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
             //state.topArtistsPlaylist = [];
         },
-        [savePlaylist.rejected]: (state, action) => {
+        [saveSimilarArtistsPlaylist.rejected]: (state, action) => {
 
         }
     }

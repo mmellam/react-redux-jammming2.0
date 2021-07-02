@@ -3,7 +3,7 @@ import TopArtists from './TopArtists';
 import NewPlaylist from '../PlaylistCreator/NewPlaylist';
 import SearchResults from '../PlaylistCreator/SearchResults';
 import { useSelector } from 'react-redux';
-import { selectTopArtistsPlaylist, selectRecommendedTracksArtist } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
+import { selectTopArtistsPlaylist, selectRecommendedTracksArtist, saveSimilarArtistsPlaylist } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
 
 const SimilarArtistsPlaylist = () => {
     const topArtistsPlaylist = useSelector(selectTopArtistsPlaylist);
@@ -14,7 +14,7 @@ const SimilarArtistsPlaylist = () => {
             <h2>SimilarArtistsPlaylist</h2>
             <TopArtists />
             <SearchResults tracks={recommendedTracksArtist} />
-            <NewPlaylist tracks={topArtistsPlaylist} />
+            <NewPlaylist tracks={topArtistsPlaylist} savePlaylist={saveSimilarArtistsPlaylist}/>
         </div>
     );
 }
