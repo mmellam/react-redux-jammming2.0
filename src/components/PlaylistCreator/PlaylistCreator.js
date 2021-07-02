@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import NewPlaylist from './NewPlaylist';
 import { useSelector } from 'react-redux';
-import { selectSearchResults } from '../../features/playlistCreator/playlistCreatorSlice';
+import { saveCreatedPlaylist, selectSearchResults } from '../../features/playlistCreator/playlistCreatorSlice';
 import { selectNewPlaylist } from '../../features/playlistCreator/playlistCreatorSlice';
 
 const PlaylistCreator = () => {
@@ -15,7 +15,7 @@ const PlaylistCreator = () => {
             <h2>PlaylistCreator</h2>
             <SearchBar />
             <SearchResults tracks={searchResults} />
-            <NewPlaylist tracks={newPlaylist} />
+            <NewPlaylist tracks={newPlaylist} savePlaylist={saveCreatedPlaylist} />
         </div>
     );
 }

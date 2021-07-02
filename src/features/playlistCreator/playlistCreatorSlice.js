@@ -17,8 +17,8 @@ export const search = createAsyncThunk(
     }
 );
 // save the playlist to the Spotify account and add selected tracks to this playlist
-export const savePlaylist = createAsyncThunk(
-    'playlistCreator/savePlaylist',
+export const saveCreatedPlaylist = createAsyncThunk(
+    'playlistCreator/saveCreatedPlaylist',
     async (playlistToCreate) => {
         savePlaylistToSpotify(playlistToCreate);
     }
@@ -67,14 +67,14 @@ const playlistCreatorSlice = createSlice({
             state.isLoadingResults = false;
             state.failedToLoadResults = true;
         },
-        [savePlaylist.pending]: (state) => {
+        [saveCreatedPlaylist.pending]: (state) => {
 
         },
-        [savePlaylist.fulfilled]: (state, action) => {
+        [saveCreatedPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
             state.newPlaylist = [];
         },
-        [savePlaylist.rejected]: (state, action) => {
+        [saveCreatedPlaylist.rejected]: (state, action) => {
 
         }
     }

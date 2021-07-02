@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TrackList from './TrackList';
-import { savePlaylist } from '../../features/playlistCreator/playlistCreatorSlice';
 
 
 const NewPlaylist = (props) => {
@@ -23,7 +22,7 @@ const NewPlaylist = (props) => {
     };
     const onClickSavePlaylist = async () => {
         const trackUris = props.tracks.map(track => track.uri);
-        dispatch(savePlaylist({ playlistName, trackUris }));
+        dispatch(props.savePlaylist({ playlistName, trackUris }));
         setPlaylistName('New Playlist');
     };
 
