@@ -1,16 +1,25 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopTrackList from './TopTrackList';
-import { getTrackBasedRecommendations, selectLimitExceededTracks } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { getTrackBasedRecommendations, selectLimitExceededTracks, selectSelectedTracks } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 
 const TopTracks = (props) => {
     const dispatch = useDispatch();
 
     const limitExceededTracks = useSelector(selectLimitExceededTracks);
+    const selectedTracks = useSelector(selectSelectedTracks);
 
     const onClickGetRecommendations = () => {
-        dispatch(getTrackBasedRecommendations())
+        console.log(selectedTracks);
+        let queryString = '';
+        for (let track of selectedTracks) {
+            console.log(track.id)
+            queryString += track.id + '%2C';
+        }
+        console.log(queryString)
+
+        dispatch(getTrackBasedRecommendations(queryString));
     };
 
 

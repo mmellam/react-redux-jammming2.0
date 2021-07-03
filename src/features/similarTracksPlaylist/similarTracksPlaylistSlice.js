@@ -22,7 +22,7 @@ export const getTrackBasedRecommendations = createAsyncThunk(
     'similarTracksPlaylist/getTrackBasedRecommendations',
     async (queryString) => {
         const accessToken = window.sessionStorage.accessToken;
-        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_tracks=3hlksXnvbKogFdPbpO9vel`, {
+        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_tracks=${queryString}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
 
@@ -137,5 +137,6 @@ export const selectTopTracks = (state) => state.similarTracksPlaylist.topTracks;
 export const selectRecommendedTracks = (state) => state.similarTracksPlaylist.recommendedTracks;
 export const selectTopTracksPlaylist = (state) => state.similarTracksPlaylist.topTracksPlaylist;
 export const selectLimitExceededTracks = (state) => state.similarTracksPlaylist.limitExceededTracks;
+export const selectSelectedTracks = (state) => state.similarTracksPlaylist.selectedTracks;
 
 export default similarTracksPlaylistSlice.reducer;
