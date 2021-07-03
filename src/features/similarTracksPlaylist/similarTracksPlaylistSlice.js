@@ -30,7 +30,7 @@ export const saveSimilarTracksPlaylist = createAsyncThunk(
 const similarTracksPlaylistSlice = createSlice({
     name: 'similarTracksPlaylist',
     initialState: {
-        topTracks: [],              // holds user's top tracks fetched from Spotify API
+        topTracks: [],
         selectedTracks: [],         // should only hold 5 tracks due to API limit
         recommendedTracks: [],      // recommended results from Spotify API
         topTracksPlaylist: [],      // holds tracks for playlist selected by user

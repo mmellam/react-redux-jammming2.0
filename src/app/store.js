@@ -9,6 +9,6 @@ export default configureStore({
         playlistCreator: playlistCreatorReducer,
         connectToSpotify: connectToSpotifyReducer,
         similarArtistsPlaylist: similarArtistsPlaylistReducer,
-        similaTracksPlaylist: similarTracksPlaylistReducer
+        similarTracksPlaylist: similarTracksPlaylistReducer
     }
 });
