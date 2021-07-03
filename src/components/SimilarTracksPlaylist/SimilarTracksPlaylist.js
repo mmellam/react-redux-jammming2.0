@@ -3,7 +3,7 @@ import TopTracks from './TopTracks';
 import SearchResults from '../PlaylistCreator/SearchResults';
 import NewPlaylist from '../PlaylistCreator/NewPlaylist';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTopTracks, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracks, selectTopTracksPlaylist } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { addTrackTrackPlaylist, getTopTracks, removeTrackTrackPlaylist, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracks, selectTopTracksPlaylist } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 
 const SimilarTracksPlaylist = () => {
@@ -21,7 +21,7 @@ const SimilarTracksPlaylist = () => {
         <div>
             <h2>SimilarTracksPlaylist</h2>
             <TopTracks tracks={topTracks} />
-            <SearchResults tracks={recommendedTracks} />
+            <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} removeTrack={removeTrackTrackPlaylist} />
             <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} />
         </div>
     );

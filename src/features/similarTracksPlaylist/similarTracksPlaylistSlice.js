@@ -51,6 +51,15 @@ const similarTracksPlaylistSlice = createSlice({
         limitExceededTracks: false  // whether limit of 5 is exceeded or not
     },
     reducers: {
+        addTrackTrackPlaylist: (state, action) => {
+            const track = state.recommendedTracks.filter((track) => track.id === action.payload);
+            if (!state.topTracksPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
+                state.topTracksPlaylist.push(...track);
+            }
+        },
+        removeTrackTrackPlaylist: (state, action) => {
+            state.topTracksPlaylist = state.topTracksPlaylist.filter((track) => track.id !== action.payload);
+        }
 
     },
     extraReducers: {
@@ -99,7 +108,7 @@ const similarTracksPlaylistSlice = createSlice({
         },
         [saveSimilarTracksPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
-            //state.topTracksPlaylist = [];
+            state.topTracksPlaylist = [];
         },
         [saveSimilarTracksPlaylist.rejected]: (state, action) => {
 
@@ -107,6 +116,8 @@ const similarTracksPlaylistSlice = createSlice({
 
     }
 });
+
+export const { addTrackTrackPlaylist, removeTrackTrackPlaylist } = similarTracksPlaylistSlice.actions;
 
 export const selectTopTracks = (state) => state.similarTracksPlaylist.topTracks;
 export const selectRecommendedTracks = (state) => state.similarTracksPlaylist.recommendedTracks;
