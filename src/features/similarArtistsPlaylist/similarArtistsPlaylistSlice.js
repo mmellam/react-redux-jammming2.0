@@ -44,11 +44,11 @@ export const saveSimilarArtistsPlaylist = createAsyncThunk(
 const similarArtistsPlaylistSlice = createSlice({
     name: 'similarArtistsPlaylist',
     initialState: {
-        topArtists: [],
-        selectedArtists: [], // should only hold 5 artists
-        recommendedTracksArtist: [], // results from Spotify API
-        topArtistsPlaylist: [], // holds tracks selected by user
-        limitExceeded: false // whether limit of 5 is exceeded or not
+        topArtists: [],                 // holds user's top artists fetched from Spotify API
+        selectedArtists: [],            // should only hold 5 artists due to API limit
+        recommendedTracksArtist: [],    // recommended results from Spotify API
+        topArtistsPlaylist: [],         // holds tracks for playlist selected by user
+        limitExceeded: false            // whether limit of 5 is exceeded or not
     },
     reducers: {
         toggleArtistSelection: (state, action) => {

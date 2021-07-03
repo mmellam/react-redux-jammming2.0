@@ -1,6 +1,6 @@
 .artists-playlist {
     display: grid;
-    grid-template: 5rem 1fr 1fr / 1fr minmax(150px, 400px) 2rem 2rem minmax(150px, 400px) 1fr;
+    grid-template: 5rem auto 1fr / 1fr minmax(150px, 400px) 2rem 2rem minmax(150px, 400px) 1fr;
     gap: 1em;
   }
   
