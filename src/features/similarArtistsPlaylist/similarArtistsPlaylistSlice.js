@@ -18,6 +18,7 @@ export const getTopArtists = createAsyncThunk(
     }
 );
 
+// get recommendations based on user's selected artists
 export const getArtistBasedRecommendations = createAsyncThunk(
     'similarArtistsPlaylist/getArtistBasedRecommendations',
     async (queryString) => {
@@ -34,6 +35,7 @@ export const getArtistBasedRecommendations = createAsyncThunk(
     }
 );
 
+// save playlist to user's Spotify account
 export const saveSimilarArtistsPlaylist = createAsyncThunk(
     'similarArtistsPlaylist/saveSimilarArtistsPlaylist',
     async (playlistToCreate) => {

@@ -17,6 +17,7 @@ export const getTopTracks = createAsyncThunk(
     }
 );
 
+// get recommendations based on user's selected tracks
 export const getTrackBasedRecommendations = createAsyncThunk(
     'similarTracksPlaylist/getTrackBasedRecommendations',
     async (queryString) => {
@@ -33,7 +34,7 @@ export const getTrackBasedRecommendations = createAsyncThunk(
     }
 );
 
-
+// save playlist to user's Spotify account
 export const saveSimilarTracksPlaylist = createAsyncThunk(
     'similarTracksPlaylist/saveSimilarTracksPlaylist',
     async (playlistToCreate) => {
@@ -51,6 +52,21 @@ const similarTracksPlaylistSlice = createSlice({
         limitExceededTracks: false  // whether limit of 5 is exceeded or not
     },
     reducers: {
+        toggleTrackSelection: (state, action) => {
+            const track = state.topTracks.filter((artist) => artist.id === action.payload);
+            if (!state.selectedTracks.find((artist) => artist.id === action.payload)) {
+                state.selectedTracks.push(...track);
+            } else {
+                state.selectedTracks = state.selectedTracks.filter((artist) => artist.id !== action.payload);
+            }
+        },
+        checkLimitExceededTracks: (state) => {
+            if (!state.selectedTracks[5]) {
+                state.limitExceededTracks = false;
+            } else {
+                state.limitExceededTracks = true;
+            }
+        },
         addTrackTrackPlaylist: (state, action) => {
             const track = state.recommendedTracks.filter((track) => track.id === action.payload);
             if (!state.topTracksPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
@@ -60,7 +76,6 @@ const similarTracksPlaylistSlice = createSlice({
         removeTrackTrackPlaylist: (state, action) => {
             state.topTracksPlaylist = state.topTracksPlaylist.filter((track) => track.id !== action.payload);
         }
-
     },
     extraReducers: {
         [getTopTracks.pending]: (state) => {
@@ -113,11 +128,10 @@ const similarTracksPlaylistSlice = createSlice({
         [saveSimilarTracksPlaylist.rejected]: (state, action) => {
 
         }
-
     }
 });
 
-export const { addTrackTrackPlaylist, removeTrackTrackPlaylist } = similarTracksPlaylistSlice.actions;
+export const { toggleTrackSelection, checkLimitExceededTracks, addTrackTrackPlaylist, removeTrackTrackPlaylist } = similarTracksPlaylistSlice.actions;
 
 export const selectTopTracks = (state) => state.similarTracksPlaylist.topTracks;
 export const selectRecommendedTracks = (state) => state.similarTracksPlaylist.recommendedTracks;

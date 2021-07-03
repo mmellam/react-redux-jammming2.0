@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { getTrackBasedRecommendations } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
-import TrackList from '../PlaylistCreator/TrackList';
+import { TopTrackList } from './TopTrackList';
 
 
 const TopTracks = (props) => {
@@ -13,9 +13,9 @@ const TopTracks = (props) => {
 
 
     return (
-        <div>
+        <div className='top-tracks'>
             <h2>TopTracks</h2>
-            <TrackList tracks={props.tracks} isRemoval={false} />
+            <TopTrackList tracks={props.tracks} />
             <button type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected tracks</button>
         </div>
     );

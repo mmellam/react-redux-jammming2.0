@@ -3,8 +3,8 @@ import TopTracks from './TopTracks';
 import SearchResults from '../PlaylistCreator/SearchResults';
 import NewPlaylist from '../PlaylistCreator/NewPlaylist';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTrackTrackPlaylist, getTopTracks, removeTrackTrackPlaylist, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracks, selectTopTracksPlaylist } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
-
+import { addTrackTrackPlaylist, getTopTracks, removeTrackTrackPlaylist, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracks, selectTopTracksPlaylist, toggleTrackSelection } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import './similarTracksPlaylist.css';
 
 const SimilarTracksPlaylist = () => {
     const dispatch = useDispatch();
@@ -20,9 +20,9 @@ const SimilarTracksPlaylist = () => {
     return (
         <div>
             <h2>SimilarTracksPlaylist</h2>
-            <TopTracks tracks={topTracks} />
-            <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} removeTrack={removeTrackTrackPlaylist} />
-            <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} />
+            <TopTracks tracks={topTracks} addTrack={toggleTrackSelection} />
+            <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} />
+            <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} removeTrack={removeTrackTrackPlaylist} />
         </div>
     );
 }

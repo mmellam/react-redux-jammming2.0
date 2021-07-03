@@ -16,11 +16,11 @@ const SimilarArtistsPlaylist = () => {
     const recommendedTracksArtist = useSelector(selectRecommendedTracksArtist);
 
     return (
-        <div className='artists-playlist'>
+        <div className='playlist'>
             <h2>SimilarArtistsPlaylist</h2>
             <TopArtists />
-            <SearchResults tracks={recommendedTracksArtist} addTrack={addTrackArtistPlaylist} removeTrack={removeTrackArtistPlaylist}/>
-            <NewPlaylist tracks={topArtistsPlaylist} savePlaylist={saveSimilarArtistsPlaylist} addTrack={addTrackArtistPlaylist} removeTrack={removeTrackArtistPlaylist} />
+            <SearchResults tracks={recommendedTracksArtist} addTrack={addTrackArtistPlaylist} />
+            <NewPlaylist tracks={topArtistsPlaylist} savePlaylist={saveSimilarArtistsPlaylist} removeTrack={removeTrackArtistPlaylist} />
         </div>
     );
 }
