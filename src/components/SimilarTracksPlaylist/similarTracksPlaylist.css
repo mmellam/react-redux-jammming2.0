@@ -1,3 +1,9 @@
 .top-tracks .track-action {
     background-color: blue;
 }
+
+
+
+.track {
+    border: 1px solid black;
+}
