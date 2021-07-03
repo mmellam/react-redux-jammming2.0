@@ -136,5 +136,6 @@ export const { toggleTrackSelection, checkLimitExceededTracks, addTrackTrackPlay
 export const selectTopTracks = (state) => state.similarTracksPlaylist.topTracks;
 export const selectRecommendedTracks = (state) => state.similarTracksPlaylist.recommendedTracks;
 export const selectTopTracksPlaylist = (state) => state.similarTracksPlaylist.topTracksPlaylist;
+export const selectLimitExceededTracks = (state) => state.similarTracksPlaylist.limitExceededTracks;
 
 export default similarTracksPlaylistSlice.reducer;

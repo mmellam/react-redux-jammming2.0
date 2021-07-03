@@ -32,7 +32,8 @@ const TopArtists = () => {
             {limitExceeded ? <h3>Please select a maximum of 5 artists</h3> : null}
             {limitExceeded
                 ? <button type='button' disabled>Get recommendations based on your selected artists</button>
-                : <button type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected artists</button>}
+                : <button type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected artists</button>
+            }
         </div>
     );
 }
