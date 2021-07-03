@@ -7,3 +7,29 @@
 .track {
     border: 1px solid black;
 }
+
+input[type=range] {
+    width: 200px;
+    cursor: pointer;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #a4c992;
+    border: 0;
+    border-radius: 25px;
+    width: 100%;
+    height: 13.3px;
+    cursor: pointer;
+  }
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -3.85px;
+    width: 21px;
+    height: 21px;
+    background: #c62a7d;
+    border: 0;
+    border-radius: 11px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }

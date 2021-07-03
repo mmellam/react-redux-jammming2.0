@@ -1,9 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addOption } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addOption, selectBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 const BrowseOptions = () => {
     const dispatch = useDispatch();
+    const browseOptions = useSelector(selectBrowseOptions);
 
     const handleSliderChange = (e) => {
         const option = {
@@ -13,29 +14,33 @@ const BrowseOptions = () => {
         dispatch(addOption(option));
     };
 
-    //'seed_tracks=0c6xIDDpzE81m2q797ordA&target_acousticness=0.5&target_danceability=0.9'
     return (
         <div>
             <h3>2. Select your song preferences</h3>
             <div>
-                <label htmlFor='acousticness'>Acousticness:</label>
-                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' name='acousticness' id='acousticness' />
+                <label htmlFor='target_energy'>Energy:</label>
+                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' 
+                    defaultValue='0.5' name='target_energy' id='target_energy' value={browseOptions[0].value} />
             </div>
             <div>
-                <label htmlFor='energy'>Energy:</label>
-                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' name='energy' id='energy' />
+                <label htmlFor='target_danceability'>Danceability:</label>
+                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' 
+                    defaultValue='0.5' name='target_danceability' id='target_danceability' value={browseOptions[1].value} />
             </div>
             <div>
-                <label htmlFor='danceability'>Danceability:</label>
-                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' name='danceability' id='danceability' />
+                <label htmlFor='target_speechiness'>Speechiness:</label>
+                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' 
+                    defaultValue='0.5' name='target_speechiness' id='target_speechiness' value={browseOptions[2].value} />
             </div>
             <div>
-                <label htmlFor='speechiness'>Speechiness:</label>
-                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' name='speechiness' id='speechiness' />
+                <label htmlFor='target_acousticness'>Acousticness:</label>
+                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' 
+                    defaultValue='0.5' name='target_acousticness' id='target_acousticness' value={browseOptions[3].value} />
             </div>
             <div>
-                <label htmlFor='instrumentalness'>Instrumentalness:</label>
-                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' name='instrumentalness' id='instrumentalness' />
+                <label htmlFor='target_instrumentalness'>Instrumentalness:</label>
+                <input type='range' onChange={handleSliderChange} min='0' max='1' step='0.1' 
+                    defaultValue='0.5' name='target_instrumentalness' id='target_instrumentalness' value={browseOptions[4].value} />
             </div>
         </div>
     );

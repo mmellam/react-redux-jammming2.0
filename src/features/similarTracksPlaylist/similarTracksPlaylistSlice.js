@@ -49,9 +49,14 @@ const similarTracksPlaylistSlice = createSlice({
         selectedTracks: [],         // should only hold 5 tracks due to API limit
         recommendedTracks: [],      // recommended results from Spotify API
         topTracksPlaylist: [],      // holds tracks for playlist selected by user
-        limitExceededTracks: false,  // whether limit of 5 is exceeded or not
-        //showBrowseOptions: false,
-        browseOptions: []
+        limitExceededTracks: false, // whether limit of 5 is exceeded or not
+        browseOptions: [            // default values for user selected filters 
+            {name: 'target_energy', value: '0.5'},
+            {name: 'target_danceability', value: '0.5'},
+            {name: 'target_speechiness', value: '0.5'},
+            {name: 'target_acousticness', value: '0.5'},
+            {name: 'target_instrumentalness', value: '0.5'}
+        ]                           
     },
     reducers: {
         toggleTrackSelection: (state, action) => {
@@ -150,7 +155,7 @@ export const selectTopTracks = (state) => state.similarTracksPlaylist.topTracks;
 export const selectRecommendedTracks = (state) => state.similarTracksPlaylist.recommendedTracks;
 export const selectTopTracksPlaylist = (state) => state.similarTracksPlaylist.topTracksPlaylist;
 export const selectLimitExceededTracks = (state) => state.similarTracksPlaylist.limitExceededTracks;
-export const selectSelectedTracks = (state) => state.similarTracksPlaylist.selectedTracks;//
-//export const selectShowBrowseOptions = (state) => state.similarTracksPlaylist.showBrowseOptions;
+export const selectSelectedTracks = (state) => state.similarTracksPlaylist.selectedTracks;
+export const selectBrowseOptions = (state) => state.similarTracksPlaylist.browseOptions;
 
 export default similarTracksPlaylistSlice.reducer;

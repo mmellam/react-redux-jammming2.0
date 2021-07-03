@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopTrackList from './TopTrackList';
 import BrowseOptions from './BrowseOptions';
-import { getTrackBasedRecommendations, selectLimitExceededTracks, selectSelectedTracks, selectShowBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { getTrackBasedRecommendations, selectLimitExceededTracks, selectSelectedTracks, selectBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 
 const TopTracks = (props) => {
@@ -10,7 +10,7 @@ const TopTracks = (props) => {
 
     const limitExceededTracks = useSelector(selectLimitExceededTracks);
     const selectedTracks = useSelector(selectSelectedTracks);
-    //const showBrowseOptions = useSelector(selectShowBrowseOptions);
+    const browseOptions = useSelector(selectBrowseOptions);
     const [showBrowseOptions, setShowBrowseOptions] = useState(false);
 
     const onClickDisplayOptions = () => {
@@ -28,11 +28,14 @@ const TopTracks = (props) => {
             console.log(track.id)
             queryString += track.id + '%2C';
         }
-        console.log(queryString)
         if (showBrowseOptions) {
-            queryString += 'browseoptions';
+            queryString += '&';
+            console.log(browseOptions)
+            for (let option of browseOptions) {
+                queryString += option.name + '=' + option.value + '&';
+            }
         }
-
+        console.log(queryString)
         dispatch(getTrackBasedRecommendations(queryString));
     };
 
