@@ -2,7 +2,7 @@ import React from 'react';
 
 const BrowseOptions = () => {
 
-    
+    'seed_tracks=0c6xIDDpzE81m2q797ordA&target_acousticness=0.5&target_danceability=0.9'
     return (
         <div>
             <h3>2. Select your song preferences</h3>
