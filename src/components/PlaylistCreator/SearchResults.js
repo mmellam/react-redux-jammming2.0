@@ -12,7 +12,7 @@ const SearchResults = (props) => {
     }
     return (
         <div className='search-results'>
-            <h2>SearchResults</h2>
+            <h2>Search results</h2>
             <TrackList tracks={props.tracks} isRemoval={false} addTrack={props.addTrack} removeTrack={props.removeTrack} />
         </div>
     );

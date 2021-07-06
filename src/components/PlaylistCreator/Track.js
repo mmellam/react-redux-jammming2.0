@@ -13,14 +13,14 @@ const Track = (props) => {
     };
 
     return (
-        <div>
-            <div>
+        <div className='track'>
+            <div className='track-info'>
                 <h3>{props.track.name}</h3>
                 <p> {props.track.artist} | {props.track.album}</p>
             </div>
             {props.isRemoval 
-                ? <button className='track-action' value={props.track.id} onClick={onClickRemoveTrack}>-</button> 
-                : <button className='track-action' value={props.track.id} onClick={onClickAddTrack}>+</button>
+                ? <button value={props.track.id} onClick={onClickRemoveTrack}>-</button> 
+                : <button value={props.track.id} onClick={onClickAddTrack}>+</button>
             }
         </div>
     );

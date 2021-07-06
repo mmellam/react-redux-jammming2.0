@@ -14,7 +14,10 @@ const PlaylistCreator = () => {
 
     return (
         <div className='playlist-creator'>
-            <h2>PlaylistCreator</h2>
+            <div className='playlist-creator-heading'>
+                <h2>Playlist Creator</h2>
+                <p>Search for songs, artists or albums and add songs to a new playlist in a few clicks.</p>
+            </div>
             <SearchBar />
             <SearchResults tracks={searchResults} addTrack={addTrack} removeTrack={removeTrack} />
             <NewPlaylist tracks={newPlaylist} savePlaylist={saveCreatedPlaylist} addTrack={addTrack} removeTrack={removeTrack} />
