@@ -16,7 +16,7 @@ const SimilarArtistsPlaylist = () => {
     const recommendedTracksArtist = useSelector(selectRecommendedTracksArtist);
 
     return (
-        <div className='playlist'>
+        <div className='artist-playlist'>
             <h2>SimilarArtistsPlaylist</h2>
             <TopArtists />
             <SearchResults tracks={recommendedTracksArtist} addTrack={addTrackArtistPlaylist} />

@@ -5,7 +5,7 @@
 }
 
 .playlist-creator-heading {
-  grid-area: 1 / 1 / 2 / 7;
+  grid-area: 1 / 2 / 2 / 6;
   border: 1px solid black;
   margin: 0;
   padding: 0 2rem;
@@ -31,13 +31,16 @@
   outline: none;
 }
 
+
+
 .search-button {
+  display: block;
   cursor: pointer;
   padding: 0.7em 0.9em;
   border: 1px solid #fff;
   border-radius: 8px;
   background-color: rgba(37, 225, 231, 0.9);
-  text-align: center;
+  margin: 1rem auto;
   font-size: 1rem;
   transition: background-color .25s;
   color: #fff;
@@ -83,6 +86,11 @@
 
 .new-playlist input:hover {
   border: 2px solid #179a9e;
+}
+
+.new-playlist input:focus {
+  border: 2px solid #179a9e;
+  background-color: #179a9e;
 }
 
 .new-playlist .save-button {

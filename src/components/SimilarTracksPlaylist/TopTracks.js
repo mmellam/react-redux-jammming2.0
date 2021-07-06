@@ -45,11 +45,11 @@ const TopTracks = (props) => {
             <h2>TopTracks</h2>
             <TopTrackList tracks={props.tracks} />
             {limitExceededTracks ? <h3>Please select a maximum of 5 tracks</h3> : null}
-            <button type='button' onClick={onClickDisplayOptions}>Filters</button>
+            <button className='filter-button' type='button' onClick={onClickDisplayOptions}>Filters</button>
             {showBrowseOptions ? <BrowseOptions /> : null}
             {limitExceededTracks
-                ? <button type='button' disabled>Get recommendations based on your selected tracks</button>
-                : <button type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected tracks</button>
+                ? <button className='search-button' type='button' disabled>Get recommendations based on your selected tracks</button>
+                : <button className='search-button' type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected tracks</button>
             }
         </div>
     );

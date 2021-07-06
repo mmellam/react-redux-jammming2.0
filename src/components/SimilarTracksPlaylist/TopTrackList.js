@@ -3,7 +3,7 @@ import TopTrack from './TopTrack';
 
 const TopTrackList = (props) => {
     return (
-        <div>
+        <div className='top-track-list'>
         {
             props.tracks.map(track => {
                 return <TopTrack track={track} 

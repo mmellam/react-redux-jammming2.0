@@ -18,10 +18,9 @@ const SimilarTracksPlaylist = () => {
 
 
     return (
-        <div>
+        <div className='track-playlist'>
             <h2>SimilarTracksPlaylist</h2>
             <TopTracks tracks={topTracks} addTrack={toggleTrackSelection} />
-            
             <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} />
             <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} removeTrack={removeTrackTrackPlaylist} />
         </div>
