@@ -3,7 +3,7 @@ import Artist from './Artist';
 
 const TopArtistsList = (props) => {
     return (
-        <div>
+        <div className='top-artists-list'>
         {
             props.artists.map(artist => {
                 return <Artist artist={artist} 

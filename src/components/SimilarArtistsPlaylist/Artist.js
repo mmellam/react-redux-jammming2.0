@@ -11,7 +11,7 @@ const Artist = (props) => {
     };
 
     return (
-        <div>
+        <div className='artist'>
             <h3>{props.artist.name}</h3>
             <p>{props.artist.genre}</p>
             <img src={props.artist.image.url} alt='Artist'/>
