@@ -1,6 +1,8 @@
 .app {
   background-color: aquamarine;
-
+  width: 77%;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
 /*

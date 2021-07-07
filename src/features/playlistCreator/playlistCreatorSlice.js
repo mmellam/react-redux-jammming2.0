@@ -57,11 +57,12 @@ const playlistCreatorSlice = createSlice({
                     name: track.name,
                     artist: track.artists[0].name,
                     album: track.album.name,
-                    uri: track.uri
+                    uri: track.uri,
+                    image: track.album.images[2].url
                 }
             });
             state.searchResults = [...searchResults];
-            console.log(state.searchResults);
+            //console.log(action.payload.tracks);
         },
         [search.rejected]: (state,action) => {
             state.isLoadingResults = false;

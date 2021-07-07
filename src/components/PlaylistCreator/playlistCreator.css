@@ -1,7 +1,7 @@
 .playlist-creator {
   display: grid;
   grid-template: 8rem 5rem 1fr / 1fr minmax(200px, 400px) 5px 5px minmax(200px, 400px) 1fr;
-  gap: 1em;
+  gap: 0.3rem;
 }
 
 .playlist-creator-heading {
@@ -31,8 +31,6 @@
   outline: none;
 }
 
-
-
 .search-button {
   display: block;
   cursor: pointer;
@@ -57,10 +55,13 @@
   background-color: white;
   overflow-y: scroll;
   padding: 0.88rem;
+  min-width: min-content;
 }
 
 .search-results h2 {
-  font-size: 1.33rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0.5rem 0;
 }
 
 .new-playlist {
@@ -69,9 +70,12 @@
   background-color: white;
   overflow-y: scroll;
   padding: 0.88rem;
+  min-height: 300px;
 }
 
 .new-playlist input {
+  font-size: 1rem;
+  font-weight: 700;
   width: 100%;
   border: 2px solid rgb(192, 251, 255);
   outline: 0;
@@ -79,8 +83,6 @@
   cursor: text;
   background: rgb(192, 251, 255);
   border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.33rem;
   color: #fff;
 }
 
@@ -114,9 +116,17 @@
 }
 
 .track {
-  border-bottom: 1px solid black;
+  border-top: 1px solid rgb(233, 233, 233);
   display: flex;
   align-items: center;
+  padding: 0.5rem 0;
+  background-color: #fff;
+  min-width: 16rem;
+  transition: background-color .3s;
+}
+
+.track:hover {
+  background-color: rgb(215, 250, 245, 0.5);
 }
 
 .track-info {
@@ -124,32 +134,39 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 0.66rem;
 }
 
 .track-info h3 {
   font-weight: 500;
-  font-size: 1.13rem;
-  margin-top: 0.8rem;
-  margin-bottom: 0.1rem;
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0 0;
 }
 
 .track-info p {
-  font-size: 0.83rem;
+  font-size: 0.73rem;
   font-weight: 300;
+  margin: 0.3rem 0;
+}
+
+.track img {
+  margin: 0.3rem 0;
+  border-radius: 5px;
+  width: 48px;
 }
 
 .track button {
   cursor: pointer;
   padding: 0.5rem 0.77rem;
   margin-left: 0.6em;
-  font-size: 1rem;
+  font-size: 1.4rem;
   transition: color .25s;
-  background-color: #fff;
-  border: 1px solid rgb(44, 169, 190);
-  border-radius: 10px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
   color: rgb(44, 169, 190);
 }
 
 .track button:hover {
-  color: rgba(265, 265, 265, .5);
+  color: #0f4244;
 }

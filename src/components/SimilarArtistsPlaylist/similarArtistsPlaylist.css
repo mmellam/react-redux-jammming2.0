@@ -4,7 +4,7 @@
   gap: 1em;
 }
   
-h2 {
+.artist-playlist h2 {
   grid-area: 1 / 2 / 2 / 6;
   border: 1px solid black;
 } 
