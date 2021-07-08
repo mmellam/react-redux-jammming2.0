@@ -14,7 +14,6 @@
   border: 1px solid rgb(17, 214, 181);
   border-radius: 9px;
   background-color: white;
-
 }
 
 .top-track-list {
@@ -79,6 +78,7 @@ input[type=checkbox] {
 .browse-options {
     margin: 0 20%;
     text-align: center;
+
 }
 
 .browse-options h3 {

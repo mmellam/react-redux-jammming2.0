@@ -18,25 +18,19 @@ function App() {
       <div className='app'>
         <header className='navbar'>
           <p>
-              <Link to='/'>Jammming</Link>
+              <Link to='/'>ja<span>mmm</span>ing.</Link>
           </p>
           <nav className='navigation'>
+              <ConnectButton />
               <ul>
                   <li>
-                      <Link to='/playlist-creator'>Playlist creator</Link>
-                  </li>
-                  <li><a>Magic Playlist</a>
-                      <ul className='dropdown'>
-                          <li>
-                              <Link to='/magic-playlist-tracks'>For Tracks</Link>
-                          </li>
-                          <li>
-                              <Link to='/magic-playlist-artists'>For Artists</Link>
-                          </li>
-                      </ul>    
+                      <Link to='/playlist-creator'>Search</Link>
                   </li>
                   <li>
-                    <ConnectButton />
+                      <Link to='/magic-playlist-tracks'>Recommended by song</Link>
+                  </li>
+                  <li>
+                      <Link to='/magic-playlist-artists'>Recommended by artist</Link>
                   </li>
               </ul>
           </nav>

@@ -1,59 +1,92 @@
 .app {
-  background-color: rgb(208, 228, 255);
-  width: 77%;
+  background-color: rgb(249, 249, 250);
   min-width: min-content;
   margin: 0 auto;
   min-height: 100vh;
+  display: grid;
+  grid-template: 1fr 3rem / 240px 1fr;
+  gap: 0.5rem;
 }
 
 .navbar {
-  white-space: nowrap;
-
+  grid-area: 1 / 1 / 3 / 2;
+  background-color: rgb(250, 250, 250);
+  padding: 0 2rem;
+  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
+  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
 }
 
 .navbar p {
-  display: inline-block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-family: 'Jaldi', sans-serif;
 }
 
-.navigation {
-  margin-left: 5em;
-  display: inline-block;
+.navbar span {
+  color: blueviolet;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: rgb(101, 70, 151);
+}
+
+ul {
+  margin: 1.2rem 0;
+  padding: 0;
+
 }
 
 li {
   list-style: none;
-  display: inline-block;
-  transition-duration: 0.5s;
-  margin: 0 1rem;
+  padding: 0.6rem 0;
+  font-size: 0.83rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+
 }
- 
+
+
+
 li:hover {
   cursor: pointer;
+  background-color: aquamarine;
 }
 
-ul li ul {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  transition: all 0.5s ease;
-  margin: 0;
-  padding: 0;
-  display: none;
-  white-space: normal;
-}
-
-ul li:hover > ul,
-ul li ul:hover {
-  visibility: visible;
-  opacity: 1;
+.connect-button {
   display: block;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  margin: 2.5rem 0 0 0;
+  cursor: pointer;
+  padding: 0.6rem 0.9rem;
+  border-radius: 54px;
+  border-width: 0px;
+  background-color: rgba(22, 190, 16, 0.9);
+  text-align: center;
+  font-size: .73rem;
+  transition: background-color .25s;
+  color: #fff;
+  font-weight: 500;
 }
 
-ul li ul li {
-  background-color: bisque;
-  display: inline-block;
-  clear: both;
-  width: 100%;
-  margin: 0;
-  padding: 1rem 0 0 0;
+.connect-button:hover {
+  background-color: rgba(16, 114, 29, 0.9);
+}
+
+.connect-button img {
+  width: 10px;
+  margin-right: 0.3rem;
+}
+
+.app footer {
+
+}
+
+@media only screen and (max-width: 870px) {
+  .navbar {
+
+    position: relative;
+    left: -200px;
+  }
 }

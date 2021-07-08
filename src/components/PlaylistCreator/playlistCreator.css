@@ -1,15 +1,14 @@
 .playlist-creator {
+
   display: grid;
-  grid-template: 8rem 7rem 1fr auto / minmax(1rem, 1fr) minmax(200px, 400px) 5px 5px minmax(200px, 400px) minmax(1rem, 1fr);
+  grid-template: 8rem 7rem 1fr auto / 1rem minmax(150px, 400px) 5px 5px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
 }
 
 .playlist-creator-heading {
   grid-area: 1 / 2 / 2 / 6;
-  border: 1px solid black;
   margin: 0;
-  padding: 0 2rem;
-  justify-self: center;
+  font-family: 'Jaldi', sans-serif;
 }
 
 .search-bar {
@@ -18,11 +17,13 @@
 }
 
 .search-bar input {
-  width: 45%;
-  padding: 0.7rem;
+  width: 60%;
+  padding: 0.8rem 1rem;
   border: 1px solid #fff;
+  border: .5px solid rgb(241, 241, 241);
   border-radius: 20px;
-  font-size: 0.83rem;
+  font-size: 0.73rem;
+  font-family: 'Nunito', sans-serif;
 }
 
 .search-bar input:focus {
@@ -32,7 +33,7 @@
 .search-bar .search-button {
   cursor: pointer;
   position: relative;
-  left: -35px;
+  left: -40px;
   top: 2px;
   border: 0;
   outline: none;
@@ -40,7 +41,7 @@
 }
 
 .search-bar .search-button img {
-  width: 1rem;
+  width: 14px;
 }
 
 .search-results {
@@ -50,6 +51,8 @@
   overflow-y: scroll;
   padding: 0.88rem;
   min-width: min-content;
+  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
+  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
 }
 
 .search-results h2 {
@@ -66,6 +69,8 @@
   padding: 0.88rem;
   min-height: 400px;
   min-width: min-content;
+  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
+  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
 }
 
 .new-playlist input {
@@ -76,7 +81,7 @@
   border: 0;
   padding: 0.33rem 0;
   cursor: text;
-  color: rgba(231, 231, 231, 0.5);
+  color: rgba(231, 231, 231, 0.842);
   transition: all 0.3s;
 }
 
@@ -165,7 +170,7 @@
   color: #0f4244;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 870px) {
   .search-results {
     grid-area: 3 / 2 / 4 / 6;
   }
