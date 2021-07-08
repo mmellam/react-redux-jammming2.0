@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TrackList from './TrackList';
+import logo from './Spotify_Icon_RGB_White.png';
 
 
 const NewPlaylist = (props) => {
@@ -32,7 +33,7 @@ const NewPlaylist = (props) => {
                 onFocus={handleFocus} onBlur={handleBlur} />
             <TrackList tracks={props.tracks} isRemoval={true} 
                 addTrack={props.addTrack} removeTrack={props.removeTrack} />
-            <button className='save-button' onClick={onClickSavePlaylist}>SAVE TO SPOTIFY</button>
+            {props.tracks.length ? <button className='save-button' onClick={onClickSavePlaylist}><img src={logo} alt='spotify' />SAVE TO SPOTIFY</button> : null}
         </div>
     );
 }

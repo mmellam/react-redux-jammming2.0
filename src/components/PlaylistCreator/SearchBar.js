@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { search } from '../../features/playlistCreator/playlistCreatorSlice';
+import icon from './magnifiying-glass.png';
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -27,9 +28,11 @@ const SearchBar = () => {
 
     return (
         <div className='search-bar'>
-            <input placeholder='Enter A Song, Album, or Artist' onChange={onChangeHandler}
-                onKeyDown={handleEnter} autoFocus/>
-            <button className='search-button' onClick={onClickSearch} type='button'>SEARCH</button>
+            <input placeholder='Song, album or artist' onChange={onChangeHandler}
+                onKeyDown={handleEnter} autoFocus
+                
+                />
+            <button className='search-button' onClick={onClickSearch} type='button'><img src={icon} alt='search'/></button>
         </div>
     );
 }
