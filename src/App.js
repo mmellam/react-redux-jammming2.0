@@ -11,29 +11,31 @@ import SimilarTracksPlaylist from './components/SimilarTracksPlaylist/SimilarTra
 import SimilarArtistsPlaylist from './components/SimilarArtistsPlaylist/SimilarArtistsPlaylist';
 import ConnectButton from './components/NavBar/ConnectButton';
 import Start from './components/NavBar/Start';
+import { openNav } from './domfunctions';
 
 function App() {
   return (  
     <Router>
       <div className='app'>
         <header className='navbar'>
-          <p>
+          <h1>
               <Link to='/'>ja<span>mmm</span>ing.</Link>
-          </p>
-          <nav className='navigation'>
-              <ConnectButton />
+          </h1>
+          <nav>
               <ul>
                   <li>
                       <Link to='/playlist-creator'>Search</Link>
                   </li>
                   <li>
-                      <Link to='/magic-playlist-tracks'>Recommended by song</Link>
+                      <Link to='/magic-playlist-tracks'>By Song</Link>
                   </li>
                   <li>
-                      <Link to='/magic-playlist-artists'>Recommended by artist</Link>
+                      <Link to='/magic-playlist-artists'>By Artist</Link>
                   </li>
               </ul>
           </nav>
+          <ConnectButton />
+          <p>Jammming is a Playlist Creator that uses the Spotify Web API to allow you to easily generate playlists of your favorite music and explore new songs based on your listening history.</p>
         </header>
         <Switch>
             <Route path='/playlist-creator'>

@@ -6,7 +6,7 @@ const SearchResults = (props) => {
         return (
             <div className='search-results'>
                 <h2>Search Results</h2>
-                <p>No results</p>
+                <p className='no-results'>No results</p>
             </div>
         )
     }
