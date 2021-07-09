@@ -57,4 +57,9 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
     return addTracksResponseJSON;
 }
 
-export { onClickGetAccessToken, savePlaylistToSpotify };
+const logout = () => {
+    window.sessionStorage.accessToken = '';
+    window.location = 'http://localhost:3000/';
+}
+
+export { onClickGetAccessToken, savePlaylistToSpotify, logout };

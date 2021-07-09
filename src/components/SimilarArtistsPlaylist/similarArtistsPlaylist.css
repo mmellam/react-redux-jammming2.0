@@ -57,3 +57,8 @@
 .top-artists .get-button:hover {
   background-color: #114255;
 }
+
+.top-artists .get-button:disabled {
+  background-color: #ececec;
+  cursor: default;
+}
