@@ -19,7 +19,10 @@ const SimilarTracksPlaylist = () => {
 
     return (
         <div className='track-playlist'>
-            <h2>SimilarTracksPlaylist</h2>
+            <div className='playlist-creator-heading'>
+                <h2>Playlist Creator by Song</h2>
+                <p>Create a playlist based on up to 5 of your most streamed songs. Get new suggestions with each button click.</p>
+            </div>
             <TopTracks tracks={topTracks} addTrack={toggleTrackSelection} />
             <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} />
             <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} removeTrack={removeTrackTrackPlaylist} />

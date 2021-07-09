@@ -27,12 +27,11 @@ const TopArtists = () => {
 
     return (
         <div className='top-artists'>
-            <h2>TopArtists</h2>
             <TopArtistsList artists={topArtists}/>
             {limitExceeded ? <h3>Please select a maximum of 5 artists</h3> : null}
             {limitExceeded
-                ? <button className='search-button' type='button' disabled>Get recommendations based on your selected artists</button>
-                : <button className='search-button' type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected artists</button>
+                ? <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
+                : <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
             }
         </div>
     );

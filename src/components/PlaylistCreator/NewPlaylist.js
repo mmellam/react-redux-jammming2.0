@@ -33,7 +33,7 @@ const NewPlaylist = (props) => {
                 onFocus={handleFocus} onBlur={handleBlur} />
             <TrackList tracks={props.tracks} isRemoval={true} 
                 addTrack={props.addTrack} removeTrack={props.removeTrack} />
-            {props.tracks.length ? <button className='save-button' onClick={onClickSavePlaylist}><img src={logo} alt='spotify' />SAVE TO SPOTIFY</button> : null}
+            {props.tracks.length ? <button className='rounded-button save-button' onClick={onClickSavePlaylist}><img src={logo} alt='spotify' />SAVE TO SPOTIFY</button> : null}
         </div>
     );
 }

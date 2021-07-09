@@ -12,9 +12,9 @@ const Artist = (props) => {
 
     return (
         <div className='artist'>
+            <img src={props.artist.image.url} alt='Artist'/>
             <h3>{props.artist.name}</h3>
             <p>{props.artist.genre}</p>
-            <img src={props.artist.image.url} alt='Artist'/>
             <label htmlFor={props.artist.id}></label>
             <input type='checkbox' id={props.artist.id} name={props.artist.name} value={props.artist.id}
                 onClick={onClickToggleArtistSelection}/>

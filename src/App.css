@@ -69,20 +69,23 @@ li:hover {
   font-weight: 800;
 }
 
-.connect-button {
+.rounded-button {
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
   padding: 0.6rem 0.9rem;
-  border-radius: 54px;
+  border-radius: 50px;
   border-width: 0px;
-  background-color: rgba(22, 190, 16, 0.9);
-  text-align: center;
-  font-size: 0.63rem;
   transition: background-color .25s;
   color: #fff;
-  font-weight: 600;
-  max-width: 137px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.73rem;
+}
+
+.connect-button {
+  background-color: rgba(22, 190, 16, 0.9);
   box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.171);
+
 }
 
 .connect-button:hover {

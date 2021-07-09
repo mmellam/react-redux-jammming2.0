@@ -4,7 +4,7 @@ import logo from '../PlaylistCreator/Spotify_Icon_RGB_White.png';
 
 const ConnectButton = () => {
     return (
-        <button onClick={onClickGetAccessToken} className='connect-button' type='button'>
+        <button onClick={onClickGetAccessToken} className='rounded-button connect-button' type='button'>
             <img src={logo} alt='spotify'/>
             Connect to Spotify</button>
     );

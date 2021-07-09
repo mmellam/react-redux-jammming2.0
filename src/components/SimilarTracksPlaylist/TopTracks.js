@@ -42,14 +42,13 @@ const TopTracks = (props) => {
 
     return (
         <div className='top-tracks'>
-            <h2>TopTracks</h2>
             <TopTrackList tracks={props.tracks} />
             {limitExceededTracks ? <h3>Please select a maximum of 5 tracks</h3> : null}
-            <button className='filter-button' type='button' onClick={onClickDisplayOptions}>Filters</button>
+            <button className='rounded-button filter-button' type='button' onClick={onClickDisplayOptions}>Filters</button>
             {showBrowseOptions ? <BrowseOptions /> : null}
             {limitExceededTracks
-                ? <button className='search-button' type='button' disabled>Get recommendations based on your selected tracks</button>
-                : <button className='search-button' type='button' onClick={onClickGetRecommendations}>Get recommendations based on your selected tracks</button>
+                ? <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
+                : <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
             }
         </div>
     );
