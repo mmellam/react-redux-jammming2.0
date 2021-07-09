@@ -1,12 +1,20 @@
+/* colors
+font            #062531
+button          #439cbc
+button hover    #114255
+light color     #d9edf5
+
+*/
+
 .app {
-  background-color: rgb(249, 249, 250);
+  background-color: rgb(249, 250, 250);
   min-width: min-content;
   margin: 0 auto;
   min-height: 100vh;
   display: grid;
   grid-template: 1fr 3rem / 220px 1fr;
   gap: 0.5rem;
-  color: rgb(16, 3, 37);
+  color: #062531;
 }
 
 .navbar {
@@ -15,7 +23,7 @@
   background-color: rgb(250, 250, 250);
   padding: 0 2rem;
   -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
-  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.116);
+  box-shadow: 5px 5px 50px 4px rgba(6, 79, 121, 0.055);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -29,17 +37,16 @@
 }
 
 .navbar span {
-  color: rgb(104, 57, 180);
+  color: #439cbc;
 }
 
 .navbar a {
   text-decoration: none;
-  color: rgb(16, 3, 37);
+  color: #062531;
 }
 
 .navbar p {
   font-family: 'Nunito', sans-serif;
-  color: rgb(16, 3, 37);
   font-size: 0.73rem;
   line-height: 1.4;
   height: 20vh;
@@ -84,8 +91,7 @@ li:hover {
 
 .connect-button {
   background-color: rgba(22, 190, 16, 0.9);
-  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.171);
-
+  box-shadow: 5px 5px 35px 4px rgba(6, 79, 121, 0.075);
 }
 
 .connect-button:hover {
@@ -98,7 +104,11 @@ li:hover {
 }
 
 .app footer {
-
+  font-size: 0.63rem;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 0.7rem;
+  justify-self: center;
+  align-self: flex-end;
 }
 
 @media only screen and (max-width: 870px) {

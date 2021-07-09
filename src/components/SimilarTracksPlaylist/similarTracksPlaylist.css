@@ -1,6 +1,6 @@
 .track-playlist {
   display: grid;
-  grid-template: 4rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
+  grid-template: 5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
 }
 
@@ -12,7 +12,7 @@
 .top-track-list {
   display: grid;
   /*grid-template: auto / repeat(2, 1fr);*/
-  grid-template: auto / repeat(auto-fill, minmax(250px, 350px));
+  grid-template: auto / repeat(auto-fill, minmax(240px, 360px));
   grid-auto-rows: auto;
   grid-auto-flow: row;
   gap: 0.5em;
@@ -24,6 +24,7 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
+  box-shadow: 5px 5px 35px 4px rgba(6, 79, 121, 0.034);
 }
 
 .top-track img {
@@ -59,76 +60,79 @@
 }
 
 .top-tracks .get-button {
-  background-color: rgb(104, 57, 180);
+  background-color: #439cbc;
   text-transform: uppercase;
-  margin: 1.5rem 0 0 0;
+  margin: 1rem 0 0 0;
 }
 
 .top-tracks .get-button:hover {
-  background-color: rgb(16, 3, 37);
+  background-color: #114255;
 }
 
-
 .filter-button {
-  display: block;
+  margin: 1rem 1rem 0 0;
   text-transform: uppercase;
-  background-color: rgba(37, 225, 231, 0.9);
-  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #439cbc;
+  border: 1px solid #d9edf5;
+  font-weight: 600;
 }
 
 .filter-button:hover {
-    background-color: #179a9e;
-  }
+  background-color: #f5fcff;
+}
 
 .browse-options {
-    margin: 0 20%;
-    text-align: center;
-
-}
-
-.browse-options h3 {
-    font-weight: 500;
-    font-size: 1.13rem;
-    margin: 1rem auto;
-    text-align: center;
-}
-
-.slider {
-    border: 1px solid black;
-    margin: 1rem auto;
+  background-color: rgb(255, 255, 255);
+  border: 0.5px solid #d9edf5;
+  border-radius: 5px;
+  margin: 0.1rem 0;
+  padding: 0.3rem;
+  width: 350px;
 }
 
 .slider label {
-    margin: 1rem;
-}
-
-.top-tracks .track-action {
-  background-color: blue;
+  font-size: 0.73rem;
+  font-family: 'Nunito', sans-serif;
+  margin: 0.3rem 0;
 }
 
 input[type=range] {
-  width: 200px;
+  width: 250px;
   cursor: pointer;
   background-color: transparent;
   -webkit-appearance: none;
+  margin-left: 0.5rem;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: #a4c992;
+  background: #d9edf5;
   border: 0;
   border-radius: 25px;
   width: 100%;
-  height: 9.3px;
+  height: 7px;
   cursor: pointer;
+  float: right;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  margin-top: -3.85px;
-  width: 13px;
-  height: 13px;
-  background: #c62a7d;
+  margin-top: -1.50px;
+  width: 9px;
+  height: 9px;
+  background: #439cbc;
   border: 0;
   border-radius: 11px;
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+@media only screen and (max-width: 430px) {
+  .browse-options {
+    width: 315px;
+  }
+
+  input[type=range] {
+    width: 210px;
+  }  
 }

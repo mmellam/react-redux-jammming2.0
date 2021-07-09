@@ -54,7 +54,7 @@ function App() {
                 <PlaylistCreator />
             </Route>
         </Switch>
-        <footer>Hi</footer>
+        <footer>App built using Spotify Web API, inspired by Codecademy front-end web development project submission. By Melanie Bucher, 2021.</footer>
       </div>  
     </Router>
   );

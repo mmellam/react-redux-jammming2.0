@@ -1,5 +1,4 @@
 .playlist-creator {
-
   display: grid;
   grid-template: 4rem 5rem 1fr auto / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
@@ -34,7 +33,7 @@
   border-radius: 20px;
   font-size: 0.73rem;
   font-family: 'Nunito', sans-serif;
-  color: rgb(68, 54, 90);
+  color: #439cbc;
 }
 
 .search-bar input:focus {
@@ -63,9 +62,8 @@
   padding: 0.88rem;
   min-width: min-content;
   max-height: 630px;
-  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
-  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
-}
+  -webkit-box-shadow: 5px 5px 28px 4px rgba(6, 79, 121, 0.075);
+  box-shadow: 5px 5px 35px 4px rgba(6, 79, 121, 0.075);}
 
 .search-results h2 {
   font-size: 1rem;
@@ -86,9 +84,8 @@
   padding: 0.88rem;
   max-height: 630px;
   min-width: min-content;
-  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
-  box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
-}
+  -webkit-box-shadow: 5px 5px 28px 4px rgba(6, 79, 121, 0.075);
+  box-shadow: 5px 5px 35px 4px rgba(6, 79, 121, 0.075);}
 
 .new-playlist input {
   font-size: 1rem;
@@ -98,12 +95,12 @@
   border: 0;
   padding: 0.33rem 0;
   cursor: text;
-  color: rgb(104, 57, 180);
+  color: #439cbc;
   transition: all 0.3s;
 }
 
 .new-playlist input:hover {
-  color: rgb(16, 3, 37);
+  color: #d9edf5;
 }
 
 .new-playlist .save-button {
@@ -133,7 +130,7 @@
 }
 
 .track:hover {
-  background-color: rgb(215, 250, 245, 0.5);
+  background-color: #f5fcff;
 }
 
 .track-info {
@@ -171,11 +168,11 @@
   background-color: transparent;
   border: 0;
   outline: none;
-  color: rgb(44, 169, 190);
+  color: #439cbc;
 }
 
 .track button:hover {
-  color: #0f4244;
+  color: #114255;
 }
 
 @media only screen and (max-width: 870px) {
