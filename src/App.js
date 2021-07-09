@@ -24,7 +24,7 @@ function App() {
           <nav>
               <ul>
                   <li>
-                      <Link to='/playlist-creator'>Search</Link>
+                      <Link to='/playlist-creator'>By Search</Link>
                   </li>
                   <li>
                       <Link to='/magic-playlist-tracks'>By Song</Link>
