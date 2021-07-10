@@ -9,6 +9,13 @@
   padding: 1.5rem 0;
 }
 
+.top-tracks h3 {
+  font-size: 0.83rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
 .top-track-list {
   display: grid;
   /*grid-template: auto / repeat(2, 1fr);*/

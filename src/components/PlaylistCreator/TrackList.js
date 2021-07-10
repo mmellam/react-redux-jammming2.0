@@ -1,5 +1,6 @@
 import React from 'react';
 import Track from './Track';
+import SavedMessage from './SavedMessage';
 
 const TrackList = (props) => {
     return (
@@ -13,6 +14,7 @@ const TrackList = (props) => {
                     removeTrack={props.removeTrack} />
             })
         }
+        {props.showMessage ? <SavedMessage /> : null}
         </div>
     );
 }

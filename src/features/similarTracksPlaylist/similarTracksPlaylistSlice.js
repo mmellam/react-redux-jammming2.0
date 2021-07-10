@@ -63,7 +63,8 @@ const similarTracksPlaylistSlice = createSlice({
             {name: 'target_speechiness', value: '0.5'},
             {name: 'target_acousticness', value: '0.5'},
             {name: 'target_instrumentalness', value: '0.5'}
-        ]                           
+        ],
+        trackPlaylistSaved: false                   
     },
     reducers: {
         toggleTrackSelection: (state, action) => {
@@ -146,14 +147,15 @@ const similarTracksPlaylistSlice = createSlice({
         },
 
         [saveSimilarTracksPlaylist.pending]: (state) => {
-
+            state.trackPlaylistSaved = false;
         },
         [saveSimilarTracksPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
+            state.trackPlaylistSaved = true;
             state.topTracksPlaylist = [];
         },
         [saveSimilarTracksPlaylist.rejected]: (state, action) => {
-
+            state.trackPlaylistSaved = false;
         }
     }
 });
@@ -166,5 +168,6 @@ export const selectTopTracksPlaylist = (state) => state.similarTracksPlaylist.to
 export const selectLimitExceededTracks = (state) => state.similarTracksPlaylist.limitExceededTracks;
 export const selectSelectedTracks = (state) => state.similarTracksPlaylist.selectedTracks;
 export const selectBrowseOptions = (state) => state.similarTracksPlaylist.browseOptions;
+export const selectTrackPlaylistSaved = (state) => state.similarTracksPlaylist.trackPlaylistSaved;
 
 export default similarTracksPlaylistSlice.reducer;

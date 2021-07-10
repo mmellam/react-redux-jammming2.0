@@ -25,9 +25,10 @@ const TopArtists = () => {
         dispatch(getArtistBasedRecommendations(queryString));
     };
 
-    
+
     return (
         <div className='top-artists'>
+            <h3>Your Top Artists</h3>
             <TopArtistsList artists={topArtists}/>
             {limitExceeded ? <h3>Please select a maximum of 5 artists</h3> : null}
             {limitExceeded

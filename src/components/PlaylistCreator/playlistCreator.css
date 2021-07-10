@@ -93,14 +93,16 @@
   width: 100%;
   outline: none;
   border: 0;
-  padding: 0.33rem 0;
+  padding: 0.33rem;
   cursor: text;
   color: #439cbc;
+  border-radius: 5px;
   transition: all 0.3s;
 }
 
 .new-playlist input:hover {
   color: #d9edf5;
+  background-color: #c3efffc0;
 }
 
 .new-playlist .save-button {

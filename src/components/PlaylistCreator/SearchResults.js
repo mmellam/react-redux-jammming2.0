@@ -9,7 +9,7 @@ const SearchResults = (props) => {
                 <p className='no-results'>No results</p>
             </div>
         )
-    }
+    };
     return (
         <div className='search-results'>
             <h2>Search Results</h2>

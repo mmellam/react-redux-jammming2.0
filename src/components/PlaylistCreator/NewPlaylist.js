@@ -29,11 +29,23 @@ const NewPlaylist = (props) => {
 
     return (
         <div className='new-playlist'>
-            <input value={playlistName} onChange={handleNameChange} 
-                onFocus={handleFocus} onBlur={handleBlur} />
-            <TrackList tracks={props.tracks} isRemoval={true} 
-                addTrack={props.addTrack} removeTrack={props.removeTrack} />
-            {props.tracks.length ? <button className='rounded-button save-button' onClick={onClickSavePlaylist}><img src={logo} alt='spotify' />SAVE TO SPOTIFY</button> : null}
+            <input 
+                value={playlistName}
+                onChange={handleNameChange} 
+                onFocus={handleFocus}
+                onBlur={handleBlur} />
+            <TrackList 
+                tracks={props.tracks} 
+                isRemoval={true} 
+                addTrack={props.addTrack} 
+                removeTrack={props.removeTrack}
+                showMessage={props.showMessage} />
+            {props.tracks.length 
+                ? <button 
+                    className='rounded-button save-button' 
+                    onClick={onClickSavePlaylist}>
+                        <img src={logo} alt='spotify' />SAVE TO SPOTIFY</button> 
+                : null}
         </div>
     );
 }

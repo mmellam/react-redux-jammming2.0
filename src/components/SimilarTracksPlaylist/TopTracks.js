@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopTrackList from './TopTrackList';
 import BrowseOptions from './BrowseOptions';
-import { getTrackBasedRecommendations, getTopTracks, selectTopTracks, selectLimitExceededTracks, selectSelectedTracks, selectBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { getTrackBasedRecommendations, 
+    getTopTracks, 
+    selectTopTracks, 
+    selectLimitExceededTracks, 
+    selectSelectedTracks, 
+    selectBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 
 const TopTracks = () => {
@@ -46,6 +51,7 @@ const TopTracks = () => {
 
     return (
         <div className='top-tracks'>
+            <h3>Your Top Tracks</h3>
             <TopTrackList tracks={topTracks} />
             {limitExceededTracks ? <h3>Please select a maximum of 5 tracks</h3> : null}
             <button className='rounded-button filter-button' type='button' onClick={onClickDisplayOptions}>Select song characteristics</button>

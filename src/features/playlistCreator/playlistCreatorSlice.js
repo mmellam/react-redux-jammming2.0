@@ -37,7 +37,8 @@ const playlistCreatorSlice = createSlice({
         searchResults: [],
         isLoadingResults: false,
         failedToLoadResults: false,
-        newPlaylist: []
+        newPlaylist: [],
+        playlistSaved: false
     },
     reducers: {
         addTrack: (state, action) => {
@@ -76,14 +77,15 @@ const playlistCreatorSlice = createSlice({
             state.failedToLoadResults = true;
         },
         [saveCreatedPlaylist.pending]: (state) => {
-
+            state.playlistSaved = false;
         },
         [saveCreatedPlaylist.fulfilled]: (state, action) => {
             //console.log(action.payload)
+            state.playlistSaved = true;
             state.newPlaylist = [];
         },
         [saveCreatedPlaylist.rejected]: (state, action) => {
-
+            state.playlistSaved = false;
         }
     }
     
@@ -93,5 +95,6 @@ export const { addTrack, removeTrack } = playlistCreatorSlice.actions;
 
 export const selectSearchResults = (state) => state.playlistCreator.searchResults;
 export const selectNewPlaylist = (state) => state.playlistCreator.newPlaylist;
+export const selectPlaylistSaved = (state) => state.playlistCreator.playlistSaved;
 
 export default playlistCreatorSlice.reducer;
