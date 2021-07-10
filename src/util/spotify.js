@@ -1,11 +1,10 @@
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const redirectUri = 'http://localhost:3000/start/';
-let accessToken;
 
 // Implicit grant flow authentication for Spotify API
 const onClickGetAccessToken = () => {
-    if (accessToken) {
-        return accessToken;
+    if (window.sessionStorage.accessToken) {
+        return window.sessionStorage.accessToken;
     }
     const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
     const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
@@ -16,14 +15,12 @@ const onClickGetAccessToken = () => {
     }
     // check if access token is provided in URL
     if (accessTokenMatch && expiresInMatch) {
-        accessToken = accessTokenMatch[1];
+        window.sessionStorage.accessToken = accessTokenMatch[1];
         const expiresIn = Number(expiresInMatch[1]);
-        window.sessionStorage.accessToken = accessToken;
         // clear the access token and URL parameters
-        window.setTimeout(() => accessToken = '', expiresIn);
         window.history.pushState('Access Token', null, '/');
         window.setTimeout(() => window.sessionStorage.accessToken = '', expiresIn);
-        return accessToken;
+        return window.sessionStorage.accessToken;
     }
 };
 
