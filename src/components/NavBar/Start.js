@@ -4,7 +4,7 @@ import { logout, onClickGetAccessToken } from '../../util/spotify';
 const Start = () => {
     const onClickRetrieveToken = () => {
         onClickGetAccessToken();
-        window.history.go(-2);
+        window.location = window.sessionStorage.previousUrl;
     }
 
     return (

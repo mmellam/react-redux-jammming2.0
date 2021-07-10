@@ -7,13 +7,16 @@ export const getTopArtists = createAsyncThunk(
     async () => {
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
+            window.sessionStorage.previousUrl = window.location;
             window.location = 'http://localhost:3000/start/';
             onClickGetAccessToken();
         }
         //console.log(accessToken)
         const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=15&time_range=short_term`, {
             headers: {
-                Authorization: `Bearer ${accessToken}`
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
             }
         });
         const responseJSON = await response.json();
@@ -29,8 +32,9 @@ export const getArtistBasedRecommendations = createAsyncThunk(
         const accessToken = window.sessionStorage.accessToken;
         const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_artists=${queryString}`, {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
-
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
             }
         });
         const responseJSON = await response.json();

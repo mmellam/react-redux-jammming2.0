@@ -29,7 +29,11 @@ const onClickGetAccessToken = () => {
 
 const savePlaylistToSpotify = async (playlistToCreate) => {
     const accessToken = window.sessionStorage.accessToken;
-    const headers = { Authorization: `Bearer ${accessToken}` };
+    const headers = { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+    };
 
     const idResponse = await fetch(`https://api.spotify.com/v1/me`, {
         headers: headers
@@ -46,9 +50,7 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
     const playlistId = createPlaylistResponseJSON.id;
 
     const addTracksResponse = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
-        headers: { 
-            Authorization: `Bearer ${accessToken}`,
-            'Content-Type': 'application/json' },
+        headers: headers,
         method: 'POST',
         body: JSON.stringify({ uris: playlistToCreate.trackUris })
     });
@@ -59,6 +61,8 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
 
 const logout = () => {
     window.sessionStorage.accessToken = '';
+    window.sessionStorage.previousUrl = '';
+    window.history.pushState('Access Token', null, '/');
     window.location = 'http://localhost:3000/';
 }
 
