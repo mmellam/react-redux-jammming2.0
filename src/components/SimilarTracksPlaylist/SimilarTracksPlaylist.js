@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import TopTracks from './TopTracks';
 import SearchResults from '../PlaylistCreator/SearchResults';
 import NewPlaylist from '../PlaylistCreator/NewPlaylist';
 import RequireLogin from '../NavBar/RequireLogin';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTrackTrackPlaylist, getTopTracks, removeTrackTrackPlaylist, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracks, selectTopTracksPlaylist, toggleTrackSelection } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import { addTrackTrackPlaylist, removeTrackTrackPlaylist, saveSimilarTracksPlaylist, selectRecommendedTracks, selectTopTracksPlaylist } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 import './similarTracksPlaylist.css';
 
 const SimilarTracksPlaylist = () => {
-    const dispatch = useDispatch();
-    const topTracks = useSelector(selectTopTracks);
     const recommendedTracks = useSelector(selectRecommendedTracks);
     const topTracksPlaylist = useSelector(selectTopTracksPlaylist);
-
-    useEffect(() => {
-        dispatch(getTopTracks());
-    }, [dispatch]);
 
 
     return (
@@ -24,8 +18,7 @@ const SimilarTracksPlaylist = () => {
                 <h2>Playlist Creator by Song</h2>
                 <p>Create a playlist based on up to 5 of your most streamed songs and your preferred song characteristics. Get new suggestions with each button click.</p>
             </div>
-            {window.sessionStorage.accessToken ? <TopTracks tracks={topTracks} addTrack={toggleTrackSelection} /> : <RequireLogin />}
-            
+            {window.sessionStorage.accessToken ? <TopTracks /> : <RequireLogin />}
             <SearchResults tracks={recommendedTracks} addTrack={addTrackTrackPlaylist} />
             <NewPlaylist tracks={topTracksPlaylist} savePlaylist={saveSimilarTracksPlaylist} removeTrack={removeTrackTrackPlaylist} />
         </div>
@@ -33,8 +26,3 @@ const SimilarTracksPlaylist = () => {
 }
 
 export default SimilarTracksPlaylist;
-
-/*
-            
-      
-            */

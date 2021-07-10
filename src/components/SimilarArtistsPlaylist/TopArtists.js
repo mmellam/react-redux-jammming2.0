@@ -6,13 +6,13 @@ import { getTopArtists, getArtistBasedRecommendations } from '../../features/sim
 
 const TopArtists = () => {
     const dispatch = useDispatch();
-    const topArtists = useSelector(selectTopArtists);
-    const limitExceeded = useSelector(selectLimitExceeded);
-    const selectedArtists = useSelector(selectSelectedArtists);
-
     useEffect(() => {
         dispatch(getTopArtists());
     }, [dispatch]);
+
+    const topArtists = useSelector(selectTopArtists);
+    const limitExceeded = useSelector(selectLimitExceeded);
+    const selectedArtists = useSelector(selectSelectedArtists);
 
     const onClickGetRecommendations = () => {
         console.log(selectedArtists);
@@ -25,6 +25,7 @@ const TopArtists = () => {
         dispatch(getArtistBasedRecommendations(queryString));
     };
 
+    
     return (
         <div className='top-artists'>
             <TopArtistsList artists={topArtists}/>

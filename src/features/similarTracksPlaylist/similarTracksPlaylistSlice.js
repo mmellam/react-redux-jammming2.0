@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { onClickGetAccessToken, savePlaylistToSpotify } from '../../util/spotify';
+import { savePlaylistToSpotify } from '../../util/spotify';
 
 // get user's top tracks from Spotify API
 export const getTopTracks = createAsyncThunk(
