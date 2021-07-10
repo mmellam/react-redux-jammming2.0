@@ -8,8 +8,7 @@ export const getTopTracks = createAsyncThunk(
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
             window.sessionStorage.previousUrl = window.location;
-            window.location = 'http://localhost:3000/start/';
-            onClickGetAccessToken();
+            return;
         }
         const response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=20&time_range=short_term`, {
             headers: {

@@ -8,8 +8,7 @@ export const getTopArtists = createAsyncThunk(
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
             window.sessionStorage.previousUrl = window.location;
-            window.location = 'http://localhost:3000/start/';
-            onClickGetAccessToken();
+            return;
         }
         //console.log(accessToken)
         const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=15&time_range=short_term`, {

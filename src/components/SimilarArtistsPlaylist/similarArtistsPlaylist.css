@@ -9,6 +9,11 @@
   padding: 1.5rem 0;
 }
 
+.require-login {
+  grid-area: 2 / 2 / 2 / 6;
+  padding: 1.5rem 0;
+}
+
 .top-artists-list {
   display: grid;
   grid-template: 1fr / repeat(auto-fill, 10rem);

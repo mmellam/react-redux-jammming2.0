@@ -2,6 +2,7 @@ import React from 'react';
 import TopArtists from './TopArtists';
 import NewPlaylist from '../PlaylistCreator/NewPlaylist';
 import SearchResults from '../PlaylistCreator/SearchResults';
+import RequireLogin from '../NavBar/RequireLogin';
 import './similarArtistsPlaylist.css';
 import { useSelector } from 'react-redux';
 import { selectTopArtistsPlaylist, 
@@ -21,7 +22,7 @@ const SimilarArtistsPlaylist = () => {
                 <h2>Playlist Creator by Artist</h2>
                 <p>Create a playlist based on up to 5 of your most streamed artists. Get new suggestions with each button click.</p>
             </div>
-            <TopArtists />
+            {window.sessionStorage.accessToken ? <TopArtists /> : <RequireLogin />}
             <SearchResults tracks={recommendedTracksArtist} addTrack={addTrackArtistPlaylist} />
             <NewPlaylist tracks={topArtistsPlaylist} savePlaylist={saveSimilarArtistsPlaylist} removeTrack={removeTrackArtistPlaylist} />
         </div>
