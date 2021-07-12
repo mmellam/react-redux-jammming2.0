@@ -39,6 +39,30 @@ const checkTokenExpiry = () => {
     }
 };
 
+const getUserId = async () => {
+    if (window.sessionStorage.userId) {
+        return window.sessionStorage.userId;  
+    } else {
+        const accessToken = window.sessionStorage.accessToken;
+        if (!checkTokenExpiry()) {
+            return;
+        } 
+        const headers = { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+        };
+    
+        const idResponse = await fetch(`https://api.spotify.com/v1/me`, {
+            headers: headers
+        });
+        const idResponseJSON = await idResponse.json();
+        const userId = idResponseJSON.id;
+        window.sessionStorage.userId = userId;
+        return userId;
+    }
+}
+
 const savePlaylistToSpotify = async (playlistToCreate) => {
     const accessToken = window.sessionStorage.accessToken;
     if (!checkTokenExpiry()) {
@@ -49,12 +73,7 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`
     };
-
-    const idResponse = await fetch(`https://api.spotify.com/v1/me`, {
-        headers: headers
-    });
-    const idResponseJSON = await idResponse.json();
-    const userId = idResponseJSON.id;
+    const userId = await getUserId();
 
     const createPlaylistResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
         headers: headers,

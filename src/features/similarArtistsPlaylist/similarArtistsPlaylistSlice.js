@@ -14,7 +14,7 @@ export const getTopArtists = createAsyncThunk(
             return;
         } 
         //console.log(accessToken)
-        const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=15&time_range=short_term`, {
+        const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=15&time_range=medium_term`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
