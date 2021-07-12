@@ -8,14 +8,14 @@ const SearchResults = (props) => {
     }
     if (!props.tracks.length) {
         return (
-            <div className='search-results'>
+            <div className='track-container search-results'>
                 <h2>Search Results</h2>
                 <p className='no-results'>No results</p>
             </div>
         )
     };
     return (
-        <div className='search-results'>
+        <div className='track-container search-results'>
             <h2>Search Results</h2>
             <TrackList 
                 tracks={props.tracks} 

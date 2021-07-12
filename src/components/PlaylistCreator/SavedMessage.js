@@ -18,7 +18,7 @@ const SavedMessage = () => {
 
     return (
         <div className='saved-message'>
-            <p>Successfully saved</p>
+            <p>Playlist saved successfully!</p>
         </div>
     );
 }

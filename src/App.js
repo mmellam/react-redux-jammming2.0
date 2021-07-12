@@ -27,21 +27,21 @@ function App() {
           <nav>
               <ul>
                   <li>
-                      <NavLink to='/playlist-creator' activeClassName="selected">By Search</NavLink>
+                      <NavLink to='/playlist-creator' activeClassName='selected'>By Search</NavLink>
                   </li>
                   <li>
-                      <NavLink to='/playlist-by-track' activeClassName="selected">By Song</NavLink>
+                      <NavLink to='/playlist-by-track' activeClassName='selected'>By Song</NavLink>
                   </li>
                   <li>
-                      <NavLink to='/playlist-by-artist' activeClassName="selected">By Artist</NavLink>
+                      <NavLink to='/playlist-by-artist' activeClassName='selected'>By Artist</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to='/about' activeClassName='selected'>About</NavLink>
                   </li>
               </ul>
           </nav>
           <ConnectButton />
           <LogoutButton />
-          <div>
-              <NavLink to='/about' activeClassName="selected">About</NavLink>
-          </div>
         </header>
         <Switch>
             <Route path='/playlist-creator'>

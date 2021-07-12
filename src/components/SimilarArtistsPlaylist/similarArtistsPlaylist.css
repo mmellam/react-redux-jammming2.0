@@ -1,6 +1,6 @@
 .artist-playlist {
   display: grid;
-  grid-template: 4rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
+  grid-template: 6.5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
 }
 
@@ -9,9 +9,21 @@
   padding: 1.5rem 0;
 }
 
-.require-login {
+.require-login, .error-message {
   grid-area: 2 / 2 / 2 / 6;
-  padding: 1.5rem 0;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  font-family: 'Nunito', sans-serif;
+  color: rgb(214, 0, 0);
+  background-color: rgb(255, 248, 248);
+  border: 0.5px solid rgb(214, 0, 0);
+  border-radius: 5px;
+}
+
+.require-login h2, .require-login p, .error-message p {
+  font-size: 0.83rem;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .top-artists h3 {
@@ -60,17 +72,19 @@
   cursor: pointer;
 }
 
-.top-artists .get-button {
+.get-button, .select-button {
   background-color: #439cbc;
   text-transform: uppercase;
-  margin: 1.5rem 0 0 0;
+  margin: 1.5rem 1rem 0 0;
+  border: 1px solid #439cbc;
 }
 
-.top-artists .get-button:hover {
-  background-color: #114255;
+.get-button:hover, .select-button:hover {
+  background-color: #54bce2;
+  border: 1px solid #54bce2;
 }
 
-.top-artists .get-button:disabled {
+.get-button:disabled {
   background-color: #ececec;
   cursor: default;
 }

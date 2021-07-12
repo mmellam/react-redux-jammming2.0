@@ -1,6 +1,6 @@
 .track-playlist {
   display: grid;
-  grid-template: 5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
+  grid-template: 6.5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
 }
 
@@ -66,33 +66,19 @@
   margin-left: 0.6rem;
 }
 
-.top-tracks .get-button {
-  background-color: #439cbc;
-  text-transform: uppercase;
-  margin: 1rem 0 0 0;
-}
-
-.top-tracks .get-button:hover {
-  background-color: #114255;
-}
-
-.top-tracks .get-button:disabled {
-  background-color: #ececec;
-  cursor: default;
-}
-
 .filter-button {
   margin: 1rem 1rem 0 0;
   text-transform: uppercase;
   background-color: #fff;
   border-radius: 50px;
   color: #439cbc;
-  border: 2px solid #439cbc;
-  font-weight: 600;
+  border: 1.5px solid #439cbc;
+  font-weight: 700;
 }
 
 .filter-button:hover {
-  background-color: #f5fcff;
+  color: #54bce2;
+  border: 1.5px solid #54bce2;
 }
 
 .browse-options {

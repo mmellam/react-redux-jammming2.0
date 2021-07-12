@@ -8,13 +8,19 @@ const Start = () => {
     }
 
     return (
-        <div>
+        <div className='start'>
             <h2>Connect to Your Spotify Account</h2>
-            <p>To connect this app to your Spotify account, click OK.</p>
+            <p>Click OK to connect this app to your Spotify account.</p>
             <p>You will be automatically logged out after 60 minutes.</p>
-            <p>To continue using the app after the login expired, simply click the Connect-to-Spotify button again.</p>
-            <button onClick={onClickRetrieveToken} type='button'>OK</button>
-            <button onClick={logout} type='button'>Cancel</button>
+            <p>When your session expires, simply click the Connect button again to reconnect.</p>
+            <button 
+                onClick={onClickRetrieveToken} 
+                type='button'
+                className='rounded-button select-button'>OK</button>
+            <button 
+                onClick={logout} 
+                type='button'
+                className='rounded-button select-button'>Cancel</button>
         </div>
     );
 }

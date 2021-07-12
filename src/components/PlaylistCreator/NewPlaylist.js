@@ -33,7 +33,7 @@ const NewPlaylist = (props) => {
     };
 
     return (
-        <div className='new-playlist'>
+        <div className='track-container new-playlist'>
             <input 
                 value={playlistName}
                 onChange={handleNameChange} 
