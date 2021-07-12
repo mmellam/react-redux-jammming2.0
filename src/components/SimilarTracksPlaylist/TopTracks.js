@@ -10,9 +10,10 @@ import {
     selectSelectedTracks, 
     selectBrowseOptions,
     clearSelectedTracks } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+import ErrorMessage from '../NavBar/ErrorMessage';
 
 
-const TopTracks = () => {
+const TopTracks = (props) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(clearSelectedTracks());
@@ -51,6 +52,9 @@ const TopTracks = () => {
         dispatch(getTrackBasedRecommendations(queryString));
     };
 
+    if (props.failedResults) {
+        return <ErrorMessage />
+    };
 
     return (
         <div className='top-tracks'>

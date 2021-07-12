@@ -5,7 +5,6 @@ import { checkTokenExpiry, onClickGetAccessToken, savePlaylistToSpotify } from '
 export const search = createAsyncThunk(
     'playlistCreator/search',
     async (searchTerm) => {
-
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
             window.sessionStorage.previousUrl = window.location;
@@ -39,10 +38,12 @@ const playlistCreatorSlice = createSlice({
     name: 'playlistCreator',
     initialState: {
         searchResults: [],
-        isLoadingResults: false,
-        failedToLoadResults: false,
         newPlaylist: [],
-        playlistSaved: false
+        playlistSaved: false,
+        // fetch error states
+        failedResults: false,
+        failedPlaylist: false
+        //isLoadingResults: false,
     },
     reducers: {
         addTrack: (state, action) => {
@@ -59,12 +60,12 @@ const playlistCreatorSlice = createSlice({
     },
     extraReducers: {
         [search.pending]: (state) => {
-            state.isLoadingResults = true;
-            state.failedToLoadResults = false;
+            //state.isLoadingResults = true;
+            state.failedResults = false;
         },
         [search.fulfilled]: (state, action) => {
-            state.isLoadingResults = false;
-            state.failedToLoadResults = false;
+            //state.isLoadingResults = false;
+            state.failedResults = false;
             const searchResults = action.payload.tracks.items.map(track => {
                 return {
                     id: track.id,
@@ -78,23 +79,25 @@ const playlistCreatorSlice = createSlice({
             state.searchResults = [...searchResults];
             //console.log(action.payload.tracks);
         },
-        [search.rejected]: (state,action) => {
-            state.isLoadingResults = false;
-            state.failedToLoadResults = true;
+        [search.rejected]: (state) => {
+            //state.isLoadingResults = false;
+            state.failedResults = true;
         },
+        
         [saveCreatedPlaylist.pending]: (state) => {
             state.playlistSaved = false;
         },
-        [saveCreatedPlaylist.fulfilled]: (state, action) => {
+        [saveCreatedPlaylist.fulfilled]: (state) => {
             //console.log(action.payload)
+            state.failedPlaylist = false;
             state.playlistSaved = true;
             state.newPlaylist = [];
         },
-        [saveCreatedPlaylist.rejected]: (state, action) => {
+        [saveCreatedPlaylist.rejected]: (state) => {
             state.playlistSaved = false;
+            state.failedPlaylist = true;
         }
     }
-    
 });
 
 export const { addTrack, removeTrack } = playlistCreatorSlice.actions;
@@ -102,5 +105,7 @@ export const { addTrack, removeTrack } = playlistCreatorSlice.actions;
 export const selectSearchResults = (state) => state.playlistCreator.searchResults;
 export const selectNewPlaylist = (state) => state.playlistCreator.newPlaylist;
 export const selectPlaylistSaved = (state) => state.playlistCreator.playlistSaved;
+export const selectFailedResults = (state) => state.playlistCreator.failedResults;
+export const selectFailedPlaylist = (state) => state.playlistCreator.failedPlaylist;
 
 export default playlistCreatorSlice.reducer;

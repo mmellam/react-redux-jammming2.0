@@ -8,8 +8,9 @@ import {
     getTopArtists, 
     getArtistBasedRecommendations, 
     clearSelectedArtists } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
+import ErrorMessage from '../NavBar/ErrorMessage';
 
-const TopArtists = () => {
+const TopArtists = (props) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(clearSelectedArtists());
@@ -31,6 +32,9 @@ const TopArtists = () => {
         dispatch(getArtistBasedRecommendations(queryString));
     };
 
+    if (props.failedResults) {
+        return <ErrorMessage />
+    };
 
     return (
         <div className='top-artists'>

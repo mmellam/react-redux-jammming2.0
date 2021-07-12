@@ -9,13 +9,17 @@ import { saveCreatedPlaylist,
     selectNewPlaylist,
     addTrack,
     removeTrack,
-    selectPlaylistSaved } from '../../features/playlistCreator/playlistCreatorSlice';
+    selectPlaylistSaved, 
+    selectFailedResults,
+    selectFailedPlaylist} from '../../features/playlistCreator/playlistCreatorSlice';
 
 
 const PlaylistCreator = () => {
     const searchResults = useSelector(selectSearchResults);
     const newPlaylist = useSelector(selectNewPlaylist);
     const playlistSaved = useSelector(selectPlaylistSaved);
+    const failedResults = useSelector(selectFailedResults);
+    const failedPlaylist = useSelector(selectFailedPlaylist);
 
     return (
         <div className='playlist-creator'>
@@ -26,12 +30,14 @@ const PlaylistCreator = () => {
             <SearchBar />
             <SearchResults 
                 tracks={searchResults} 
-                addTrack={addTrack}  />
+                addTrack={addTrack}
+                failedResults={failedResults} />
             <NewPlaylist 
                 tracks={newPlaylist} 
                 savePlaylist={saveCreatedPlaylist} 
                 removeTrack={removeTrack}
-                showMessage={playlistSaved} />
+                showMessage={playlistSaved}
+                failedPlaylist={failedPlaylist} />
         </div>
     );
 }

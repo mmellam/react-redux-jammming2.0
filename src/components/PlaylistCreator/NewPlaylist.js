@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TrackList from './TrackList';
 import logo from './Spotify_Icon_RGB_White.png';
+import ErrorMessage from '../NavBar/ErrorMessage';
 
 
 const NewPlaylist = (props) => {
@@ -25,6 +26,10 @@ const NewPlaylist = (props) => {
         const trackUris = props.tracks.map(track => track.uri);
         dispatch(props.savePlaylist({ playlistName, trackUris }));
         setPlaylistName('New Playlist');
+    };
+
+    if (props.failedPlaylist) {
+        return <ErrorMessage />
     };
 
     return (

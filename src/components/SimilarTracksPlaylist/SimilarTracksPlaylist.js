@@ -7,6 +7,9 @@ import RequireLogin from '../NavBar/RequireLogin';
 import { addTrackTrackPlaylist, 
     removeTrackTrackPlaylist, 
     saveSimilarTracksPlaylist, 
+    selectFailedPlaylistTrack, 
+    selectFailedRecTrack, 
+    selectFailedResultsTrack, 
     selectRecommendedTracks, 
     selectTopTracksPlaylist, 
     selectTrackPlaylistSaved } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
@@ -16,6 +19,9 @@ const SimilarTracksPlaylist = () => {
     const recommendedTracks = useSelector(selectRecommendedTracks);
     const topTracksPlaylist = useSelector(selectTopTracksPlaylist);
     const trackPlaylistSaved = useSelector(selectTrackPlaylistSaved);
+    const failedResultsTrack = useSelector(selectFailedResultsTrack);
+    const failedRecTrack = useSelector(selectFailedRecTrack);
+    const failedPlaylistTrack = useSelector(selectFailedPlaylistTrack);
 
     return (
         <div className='track-playlist'>
@@ -23,15 +29,17 @@ const SimilarTracksPlaylist = () => {
                 <h2>Playlist Creator by Song</h2>
                 <p>Create a playlist based on up to 5 of your most streamed songs and your preferred song characteristics. Get new suggestions with each button click.</p>
             </div>
-            {window.sessionStorage.accessToken ? <TopTracks /> : <RequireLogin />}
+            {window.sessionStorage.accessToken ? <TopTracks failedResults={failedResultsTrack} /> : <RequireLogin />}
             <SearchResults 
                 tracks={recommendedTracks} 
-                addTrack={addTrackTrackPlaylist} />
+                addTrack={addTrackTrackPlaylist}
+                failedResults={failedRecTrack} />
             <NewPlaylist 
                 tracks={topTracksPlaylist} 
                 savePlaylist={saveSimilarTracksPlaylist} 
                 removeTrack={removeTrackTrackPlaylist}
-                showMessage={trackPlaylistSaved} />
+                showMessage={trackPlaylistSaved}
+                failedPlaylist={failedPlaylistTrack} />
         </div>
     );
 }

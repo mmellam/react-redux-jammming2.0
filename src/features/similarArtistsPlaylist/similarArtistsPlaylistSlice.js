@@ -64,7 +64,11 @@ const similarArtistsPlaylistSlice = createSlice({
         recommendedTracksArtist: [],    // recommended results from Spotify API
         topArtistsPlaylist: [],         // holds tracks for playlist selected by user
         limitExceeded: false,            // whether limit of 5 is exceeded or not
-        artistPlaylistSaved: false
+        artistPlaylistSaved: false,
+        // fetch error states
+        failedResultsArtist: false,
+        failedRecArtist: false,
+        failedPlaylistArtist: false
     },
     reducers: {
         toggleArtistSelection: (state, action) => {
@@ -99,10 +103,11 @@ const similarArtistsPlaylistSlice = createSlice({
     },
     extraReducers: {
         [getTopArtists.pending]: (state) => {
-
+            state.failedResultsArtist = false;
         },
         [getTopArtists.fulfilled]: (state, action) => {
             console.log(action.payload);
+            state.failedResultsArtist = false;
             const topArtists = action.payload.items.map((artist) => {
                 return {
                     id: artist.id,
@@ -115,13 +120,15 @@ const similarArtistsPlaylistSlice = createSlice({
             console.log(topArtists);
             state.topArtists = [...topArtists];
         },
-        [getTopArtists.rejected]: (state, action) => {
-
+        [getTopArtists.rejected]: (state) => {
+            state.failedResultsArtist = true;
         },
+        
         [getArtistBasedRecommendations.pending]: (state) => {
-
+            state.failedRecArtist = false;
         },
         [getArtistBasedRecommendations.fulfilled]: (state, action) => {
+            state.failedRecArtist = false;
             //console.log(action.payload)
             const recommendedTracksArtist = action.payload.tracks.map(track => {
                 return {
@@ -137,20 +144,23 @@ const similarArtistsPlaylistSlice = createSlice({
             console.log(state.recommendedTracksArtist);
 
         },
-        [getArtistBasedRecommendations.rejected]: (state, action) => {
-
+        [getArtistBasedRecommendations.rejected]: (state) => {
+            state.failedRecArtist = true;
         },
 
         [saveSimilarArtistsPlaylist.pending]: (state) => {
             state.artistPlaylistSaved = false;
+            state.failedPlaylistArtist = false;
         },
-        [saveSimilarArtistsPlaylist.fulfilled]: (state, action) => {
+        [saveSimilarArtistsPlaylist.fulfilled]: (state) => {
             //console.log(action.payload)
             state.artistPlaylistSaved = true;
+            state.failedPlaylistArtist = false;
             state.topArtistsPlaylist = [];
         },
-        [saveSimilarArtistsPlaylist.rejected]: (state, action) => {
+        [saveSimilarArtistsPlaylist.rejected]: (state) => {
             state.artistPlaylistSaved = false;
+            state.failedPlaylistArtist = true;
         }
     }
 });
@@ -169,5 +179,8 @@ export const selectSelectedArtists = (state) => state.similarArtistsPlaylist.sel
 export const selectLimitExceeded = (state) => state.similarArtistsPlaylist.limitExceeded;
 export const selectRecommendedTracksArtist = (state) => state.similarArtistsPlaylist.recommendedTracksArtist;
 export const selectArtistPlaylistSaved = (state) => state.similarArtistsPlaylist.artistPlaylistSaved;
+export const selectFailedResultsArtist = (state) => state.similarArtistsPlaylist.failedResultsArtist;
+export const selectFailedRecArtist = (state) => state.similarArtistsPlaylist.failedRecArtist;
+export const selectFailedPlaylistArtist = (state) => state.similarArtistsPlaylist.failedPlaylistArtist;
 
 export default similarArtistsPlaylistSlice.reducer;

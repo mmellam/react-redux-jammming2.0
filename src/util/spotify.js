@@ -61,7 +61,7 @@ const getUserId = async () => {
         window.sessionStorage.userId = userId;
         return userId;
     }
-}
+};
 
 const savePlaylistToSpotify = async (playlistToCreate) => {
     const accessToken = window.sessionStorage.accessToken;
@@ -91,12 +91,12 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
     const addTracksResponseJSON = await addTracksResponse.json();
     console.log(addTracksResponseJSON);
     return addTracksResponseJSON;
-}
+};
 
 const logout = () => {
     window.sessionStorage.clear();
     window.history.pushState('Access Token', null, '/');
     window.location = 'http://localhost:3000/';
-}
+};
 
 export { onClickGetAccessToken, checkTokenExpiry, savePlaylistToSpotify, logout };

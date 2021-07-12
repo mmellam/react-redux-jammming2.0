@@ -10,13 +10,19 @@ import { selectTopArtistsPlaylist,
     saveSimilarArtistsPlaylist, 
     addTrackArtistPlaylist, 
     removeTrackArtistPlaylist, 
-    selectArtistPlaylistSaved
+    selectArtistPlaylistSaved,
+    selectFailedResultsArtist,
+    selectFailedRecArtist,
+    selectFailedPlaylistArtist
     } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
 
 const SimilarArtistsPlaylist = () => {
     const topArtistsPlaylist = useSelector(selectTopArtistsPlaylist);
     const recommendedTracksArtist = useSelector(selectRecommendedTracksArtist);
     const artistPlaylistSaved = useSelector(selectArtistPlaylistSaved);
+    const failedResultsArtist = useSelector(selectFailedResultsArtist);
+    const failedRecArtist = useSelector(selectFailedRecArtist);
+    const failedPlaylistArtist = useSelector(selectFailedPlaylistArtist);
 
     return (
         <div className='artist-playlist'>
@@ -24,15 +30,17 @@ const SimilarArtistsPlaylist = () => {
                 <h2>Playlist Creator by Artist</h2>
                 <p>Create a playlist based on up to 5 of your most streamed artists. Get new suggestions with each button click.</p>
             </div>
-            {window.sessionStorage.accessToken ? <TopArtists /> : <RequireLogin />}
+            {window.sessionStorage.accessToken ? <TopArtists failedResults={failedResultsArtist} /> : <RequireLogin />}
             <SearchResults 
                 tracks={recommendedTracksArtist} 
-                addTrack={addTrackArtistPlaylist} />
+                addTrack={addTrackArtistPlaylist}
+                failedResults={failedRecArtist} />
             <NewPlaylist 
                 tracks={topArtistsPlaylist} 
                 savePlaylist={saveSimilarArtistsPlaylist} 
                 removeTrack={removeTrackArtistPlaylist}
-                showMessage={artistPlaylistSaved} />
+                showMessage={artistPlaylistSaved}
+                failedPlaylist={failedPlaylistArtist} />
         </div>
     );
 }

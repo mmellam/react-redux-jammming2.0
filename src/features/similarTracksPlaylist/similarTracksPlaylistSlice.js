@@ -70,7 +70,11 @@ const similarTracksPlaylistSlice = createSlice({
             {name: 'target_acousticness', value: '0.5'},
             {name: 'target_instrumentalness', value: '0.5'}
         ],
-        trackPlaylistSaved: false                   
+        trackPlaylistSaved: false,
+        // fetch error states
+        failedResultsTrack: false,
+        failedRecTrack: false,
+        failedPlaylistTrack: false                 
     },
     reducers: {
         toggleTrackSelection: (state, action) => {
@@ -116,9 +120,10 @@ const similarTracksPlaylistSlice = createSlice({
     },
     extraReducers: {
         [getTopTracks.pending]: (state) => {
-
+            state.failedResultsTrack = false;
         },
         [getTopTracks.fulfilled]: (state, action) => {
+            state.failedResultsTrack = false;
             const topTracks = action.payload.items.map((track) => {
                 return {
                     id: track.id,
@@ -131,13 +136,15 @@ const similarTracksPlaylistSlice = createSlice({
             });
             state.topTracks = [...topTracks];
         },
-        [getTopTracks.rejected]: (state, action) => {
-
+        [getTopTracks.rejected]: (state) => {
+            state.failedResultsTrack = true;
         },
+        
         [getTrackBasedRecommendations.pending]: (state) => {
-
+            state.failedRecTrack = false;
         },
         [getTrackBasedRecommendations.fulfilled]: (state, action) => {
+            state.failedRecTrack = false;
             //console.log(action.payload)
             const recommendedTracks = action.payload.tracks.map(track => {
                 return {
@@ -153,20 +160,23 @@ const similarTracksPlaylistSlice = createSlice({
             console.log(state.recommendedTracks);
 
         },
-        [getTrackBasedRecommendations.rejected]: (state, action) => {
-
+        [getTrackBasedRecommendations.rejected]: (state) => {
+            state.failedRecTrack = true;
         },
 
         [saveSimilarTracksPlaylist.pending]: (state) => {
+            state.failedPlaylistTrack = false;
             state.trackPlaylistSaved = false;
         },
-        [saveSimilarTracksPlaylist.fulfilled]: (state, action) => {
+        [saveSimilarTracksPlaylist.fulfilled]: (state) => {
             //console.log(action.payload)
             state.trackPlaylistSaved = true;
+            state.failedPlaylistTrack = false;
             state.topTracksPlaylist = [];
         },
-        [saveSimilarTracksPlaylist.rejected]: (state, action) => {
+        [saveSimilarTracksPlaylist.rejected]: (state) => {
             state.trackPlaylistSaved = false;
+            state.failedPlaylistTrack = true;
         }
     }
 });
@@ -186,5 +196,8 @@ export const selectLimitExceededTracks = (state) => state.similarTracksPlaylist.
 export const selectSelectedTracks = (state) => state.similarTracksPlaylist.selectedTracks;
 export const selectBrowseOptions = (state) => state.similarTracksPlaylist.browseOptions;
 export const selectTrackPlaylistSaved = (state) => state.similarTracksPlaylist.trackPlaylistSaved;
+export const selectFailedResultsTrack = (state) => state.similarTracksPlaylist.failedResultsTrack;
+export const selectFailedRecTrack = (state) => state.similarTracksPlaylist.failedRecTrack;
+export const selectFailedPlaylistTrack = (state) => state.similarTracksPlaylist.failedPlaylistTrack;
 
 export default similarTracksPlaylistSlice.reducer;

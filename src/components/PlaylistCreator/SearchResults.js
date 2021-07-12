@@ -1,7 +1,11 @@
 import React from 'react';
+import ErrorMessage from '../NavBar/ErrorMessage';
 import TrackList from './TrackList';
 
 const SearchResults = (props) => {
+    if (props.failedResults) {
+        return <ErrorMessage />
+    }
     if (!props.tracks.length) {
         return (
             <div className='search-results'>
