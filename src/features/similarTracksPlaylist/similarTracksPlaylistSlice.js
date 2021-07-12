@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { savePlaylistToSpotify } from '../../util/spotify';
+import { checkTokenExpiry, savePlaylistToSpotify } from '../../util/spotify';
 
 // get user's top tracks from Spotify API
 export const getTopTracks = createAsyncThunk(
@@ -10,6 +10,9 @@ export const getTopTracks = createAsyncThunk(
             window.sessionStorage.previousUrl = window.location;
             return;
         }
+        if (!checkTokenExpiry()) {
+            return;
+        } 
         const response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=20&time_range=short_term`, {
             headers: {
                 'Accept': 'application/json',
@@ -28,6 +31,9 @@ export const getTrackBasedRecommendations = createAsyncThunk(
     'similarTracksPlaylist/getTrackBasedRecommendations',
     async (queryString) => {
         const accessToken = window.sessionStorage.accessToken;
+        if (!checkTokenExpiry()) {
+            return;
+        } 
         const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=30&seed_tracks=${queryString}`, {
             headers: {
                 'Accept': 'application/json',

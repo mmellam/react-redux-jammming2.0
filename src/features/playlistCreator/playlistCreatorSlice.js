@@ -1,16 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { onClickGetAccessToken, savePlaylistToSpotify } from '../../util/spotify';
+import { checkTokenExpiry, onClickGetAccessToken, savePlaylistToSpotify } from '../../util/spotify';
 
 // searches the entered search term in the Spotify API
 export const search = createAsyncThunk(
     'playlistCreator/search',
     async (searchTerm) => {
+
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
             window.sessionStorage.previousUrl = window.location;
             window.location = 'http://localhost:3000/start/';
             onClickGetAccessToken(); 
         }
+        if (!checkTokenExpiry()) {
+            return;
+        } 
         //console.log(accessToken)
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
             headers: {

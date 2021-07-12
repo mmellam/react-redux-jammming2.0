@@ -16,18 +16,34 @@ const onClickGetAccessToken = () => {
     }
     // check if access token is provided in URL
     if (accessTokenMatch && expiresInMatch) {
-        window.sessionStorage.accessToken = accessTokenMatch[1];
-        const expiresIn = Number(expiresInMatch[1]);
+        const expiresInSeconds = Number(expiresInMatch[1]);
+        window.sessionStorage.setItem('tokenExpiry', Date.now() + (expiresInSeconds * 1000));
+        //window.sessionStorage.setItem('tokenExpiry', Date.now() + (30 * 1000));
+        window.sessionStorage.setItem('accessToken', accessTokenMatch[1]);
         // clear the access token and URL parameters
         window.history.pushState('Access Token', null, '/');
-        window.setTimeout(() => window.sessionStorage.accessToken = '', expiresIn);
-        console.log('expires in: ' + expiresIn);
         return window.sessionStorage.accessToken;
+    }
+};
+
+// Check if token is still valid (valid for 60 minutes according to API)
+const checkTokenExpiry = () => {
+    if (Date.now() >= Number(window.sessionStorage.tokenExpiry)) {
+        window.sessionStorage.removeItem('accessToken');
+        window.sessionStorage.removeItem('tokenExpiry');
+        window.alert('Your session has expired. Please reconnect to Spotify using the Connect Button.');
+        window.location = window.sessionStorage.previousUrl;
+        return false;
+    } else {
+        return true;
     }
 };
 
 const savePlaylistToSpotify = async (playlistToCreate) => {
     const accessToken = window.sessionStorage.accessToken;
+    if (!checkTokenExpiry()) {
+        return;
+    } 
     const headers = { 
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -59,10 +75,9 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
 }
 
 const logout = () => {
-    window.sessionStorage.accessToken = '';
-    window.sessionStorage.previousUrl = '';
+    window.sessionStorage.clear();
     window.history.pushState('Access Token', null, '/');
     window.location = 'http://localhost:3000/';
 }
 
-export { onClickGetAccessToken, savePlaylistToSpotify, logout };
+export { onClickGetAccessToken, checkTokenExpiry, savePlaylistToSpotify, logout };
