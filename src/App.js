@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom';
 import './App.css';
 import PlaylistCreator from './components/PlaylistCreator/PlaylistCreator';
@@ -26,20 +27,20 @@ function App() {
           <nav>
               <ul>
                   <li>
-                      <Link to='/playlist-creator'>By Search</Link>
+                      <NavLink to='/playlist-creator' activeClassName="selected">By Search</NavLink>
                   </li>
                   <li>
-                      <Link to='/playlist-by-track'>By Song</Link>
+                      <NavLink to='/playlist-by-track' activeClassName="selected">By Song</NavLink>
                   </li>
                   <li>
-                      <Link to='/playlist-by-artist'>By Artist</Link>
+                      <NavLink to='/playlist-by-artist' activeClassName="selected">By Artist</NavLink>
                   </li>
               </ul>
           </nav>
           <ConnectButton />
           <LogoutButton />
           <div>
-              <Link to='/about'>About</Link>
+              <NavLink to='/about' activeClassName="selected">About</NavLink>
           </div>
         </header>
         <Switch>

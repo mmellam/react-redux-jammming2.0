@@ -45,6 +45,8 @@ const playlistCreatorSlice = createSlice({
             const track = state.searchResults.filter((track) => track.id === action.payload);
             if (!state.newPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
                 state.newPlaylist.push(...track);
+            } else {
+                window.alert('This song is already in your playlist. Jammming currently filters out duplicate songs.');
             }
         },
         removeTrack: (state, action) => {

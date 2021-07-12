@@ -101,8 +101,8 @@
 }
 
 .new-playlist input:hover {
-  color: #d9edf5;
-  background-color: #c3efffc0;
+
+  background-color: #f5fcff;
 }
 
 .new-playlist .save-button {

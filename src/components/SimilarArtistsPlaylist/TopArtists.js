@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopArtistsList from './TopArtistsList';
-import { selectTopArtists, selectLimitExceeded, selectSelectedArtists } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
-import { getTopArtists, getArtistBasedRecommendations } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
+import { 
+    selectTopArtists, 
+    selectLimitExceeded, 
+    selectSelectedArtists,
+    getTopArtists, 
+    getArtistBasedRecommendations, 
+    clearSelectedArtists } from '../../features/similarArtistsPlaylist/similarArtistsPlaylistSlice';
 
 const TopArtists = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+        dispatch(clearSelectedArtists());
         dispatch(getTopArtists());
     }, [dispatch]);
 

@@ -16,8 +16,13 @@ const Artist = (props) => {
             <h3>{props.artist.name}</h3>
             <p>{props.artist.genre}</p>
             <label htmlFor={props.artist.id}></label>
-            <input type='checkbox' id={props.artist.id} name={props.artist.name} value={props.artist.id}
-                onClick={onClickToggleArtistSelection}/>
+            <input 
+                type='checkbox' 
+                id={props.artist.id} 
+                name={props.artist.name} 
+                value={props.artist.id}
+                onClick={onClickToggleArtistSelection} 
+                />
         </div>
     );
 }

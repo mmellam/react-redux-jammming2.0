@@ -80,10 +80,15 @@ const similarArtistsPlaylistSlice = createSlice({
             const track = state.recommendedTracksArtist.filter((track) => track.id === action.payload);
             if (!state.topArtistsPlaylist.find((savedTrack) => savedTrack.id === action.payload)) {
                 state.topArtistsPlaylist.push(...track);
+            } else {
+                window.alert('This song is already in your playlist. Jammming currently filters out duplicate songs.');
             }
         },
         removeTrackArtistPlaylist: (state, action) => {
             state.topArtistsPlaylist = state.topArtistsPlaylist.filter((track) => track.id !== action.payload);
+        },
+        clearSelectedArtists: (state) => {
+            state.selectedArtists = [];
         }
     },
     extraReducers: {
@@ -148,7 +153,8 @@ export const {
     toggleArtistSelection,
     checkLimitExceeded,
     addTrackArtistPlaylist,
-    removeTrackArtistPlaylist 
+    removeTrackArtistPlaylist,
+    clearSelectedArtists 
     } = similarArtistsPlaylistSlice.actions;
 
 export const selectTopArtists = (state) => state.similarArtistsPlaylist.topArtists;

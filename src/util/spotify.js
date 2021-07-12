@@ -21,6 +21,7 @@ const onClickGetAccessToken = () => {
         // clear the access token and URL parameters
         window.history.pushState('Access Token', null, '/');
         window.setTimeout(() => window.sessionStorage.accessToken = '', expiresIn);
+        console.log('expires in: ' + expiresIn);
         return window.sessionStorage.accessToken;
     }
 };

@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopTrackList from './TopTrackList';
 import BrowseOptions from './BrowseOptions';
-import { getTrackBasedRecommendations, 
+import { 
+    getTrackBasedRecommendations, 
     getTopTracks, 
     selectTopTracks, 
     selectLimitExceededTracks, 
     selectSelectedTracks, 
-    selectBrowseOptions } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
+    selectBrowseOptions,
+    clearSelectedTracks } from '../../features/similarTracksPlaylist/similarTracksPlaylistSlice';
 
 
 const TopTracks = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+        dispatch(clearSelectedTracks());
         dispatch(getTopTracks());
     }, [dispatch]);
 

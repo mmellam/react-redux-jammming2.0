@@ -6,14 +6,16 @@ const Track = (props) => {
 
     const onClickAddTrack = (e) => {
         dispatch(props.addTrack(e.target.value));
+        document.getElementById(e.target.value).style.backgroundColor = '#f5fcff';
     };
 
     const onClickRemoveTrack = (e) => {
         dispatch(props.removeTrack(e.target.value));
+        document.getElementById(e.target.value).style.backgroundColor = '';
     };
 
     return (
-        <div className='track'>
+        <div className='track' id={props.track.id}>
             <img src={props.track.image} alt='album cover' />
             <div className='track-info'>
                 <h3>{props.track.name}</h3>
