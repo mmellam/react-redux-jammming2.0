@@ -52,6 +52,14 @@ const TopTracks = (props) => {
         dispatch(getTrackBasedRecommendations(queryString));
     };
 
+    const renderButton = () => {
+        if (selectedTracks.length && !limitExceededTracks) {
+            return <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
+        } else {
+            return <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
+        }
+    };
+
     if (props.failedResults) {
         return <ErrorMessage />
     };
@@ -60,13 +68,10 @@ const TopTracks = (props) => {
         <div className='top-tracks'>
             <h3>Your Top Tracks</h3>
             <TopTrackList tracks={topTracks} />
-            {limitExceededTracks ? <h3>Please select a maximum of 5 tracks</h3> : null}
+            {limitExceededTracks && <p className='limit'>Please select a maximum of 5 tracks</p>}
             <button className='rounded-button filter-button' type='button' onClick={onClickDisplayOptions}>Select song characteristics</button>
-            {showBrowseOptions ? <BrowseOptions /> : null}
-            {limitExceededTracks
-                ? <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
-                : <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
-            }
+            {showBrowseOptions && <BrowseOptions />}
+            {renderButton()}
         </div>
     );
 }

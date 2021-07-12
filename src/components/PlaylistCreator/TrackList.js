@@ -14,7 +14,7 @@ const TrackList = (props) => {
                     removeTrack={props.removeTrack} />
             })
         }
-        {props.showMessage ? <SavedMessage /> : null}
+        {props.showMessage && <SavedMessage />}
         </div>
     );
 }

@@ -32,6 +32,14 @@ const TopArtists = (props) => {
         dispatch(getArtistBasedRecommendations(queryString));
     };
 
+    const renderButton = () => {
+        if (selectedArtists.length && !limitExceeded) {
+            return <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
+        } else {
+            return <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
+        }
+    };
+
     if (props.failedResults) {
         return <ErrorMessage />
     };
@@ -40,11 +48,8 @@ const TopArtists = (props) => {
         <div className='top-artists'>
             <h3>Your Top Artists</h3>
             <TopArtistsList artists={topArtists}/>
-            {limitExceeded ? <h3>Please select a maximum of 5 artists</h3> : null}
-            {limitExceeded
-                ? <button className='rounded-button get-button' type='button' disabled>Get song recommendations</button>
-                : <button className='rounded-button get-button' type='button' onClick={onClickGetRecommendations}>Get song recommendations</button>
-            }
+            {limitExceeded && <p className='limit'>Please select a maximum of 5 artists</p>}
+            {renderButton()}
         </div>
     );
 }

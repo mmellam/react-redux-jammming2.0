@@ -13,7 +13,6 @@ const TopTrack = (props) => {
     return (
         <div className='top-track'>
             <img src={props.track.image} alt='album cover' />
-
             <div className='top-track-info'>
                 <h3>{props.track.name}</h3>
                 <p> {props.track.artist} | {props.track.album}</p>
