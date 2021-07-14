@@ -22,7 +22,7 @@ export const getTopArtists = createAsyncThunk(
             }
         });
         const responseJSON = await response.json();
-        console.log(responseJSON);
+        //console.log(responseJSON);
         return responseJSON;
     }
 );
@@ -43,7 +43,7 @@ export const getArtistBasedRecommendations = createAsyncThunk(
             }
         });
         const responseJSON = await response.json();
-        console.log(responseJSON);
+        //console.log(responseJSON);
         return responseJSON;
     }
 );
@@ -107,7 +107,7 @@ const similarArtistsPlaylistSlice = createSlice({
             state.failedResultsArtist = false;
         },
         [getTopArtists.fulfilled]: (state, action) => {
-            console.log(action.payload);
+            //console.log(action.payload);
             state.failedResultsArtist = false;
             const topArtists = action.payload.items.map((artist) => {
                 return {
@@ -118,7 +118,6 @@ const similarArtistsPlaylistSlice = createSlice({
                     uri: artist.uri
                 }
             });
-            console.log(topArtists);
             state.topArtists = [...topArtists];
         },
         [getTopArtists.rejected]: (state) => {
@@ -142,8 +141,6 @@ const similarArtistsPlaylistSlice = createSlice({
                 }
             });
             state.recommendedTracksArtist = [...recommendedTracksArtist];
-            console.log(state.recommendedTracksArtist);
-
         },
         [getArtistBasedRecommendations.rejected]: (state) => {
             state.failedRecArtist = true;

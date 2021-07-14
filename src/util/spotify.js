@@ -89,7 +89,7 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
         body: JSON.stringify({ uris: playlistToCreate.trackUris })
     });
     const addTracksResponseJSON = await addTracksResponse.json();
-    console.log(addTracksResponseJSON);
+    //console.log(addTracksResponseJSON);
     return addTracksResponseJSON;
 };
 

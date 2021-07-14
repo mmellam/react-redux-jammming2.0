@@ -21,7 +21,7 @@ export const getTopTracks = createAsyncThunk(
             }
         });
         const responseJSON = await response.json();
-        console.log(responseJSON);
+        //console.log(responseJSON);
         return responseJSON;
     }
 );
@@ -42,7 +42,7 @@ export const getTrackBasedRecommendations = createAsyncThunk(
             }
         });
         const responseJSON = await response.json();
-        console.log(responseJSON);
+        //console.log(responseJSON);
         return responseJSON;
     }
 );
@@ -158,8 +158,7 @@ const similarTracksPlaylistSlice = createSlice({
                 }
             });
             state.recommendedTracks = [...recommendedTracks];
-            console.log(state.recommendedTracks);
-
+            //console.log(state.recommendedTracks);
         },
         [getTrackBasedRecommendations.rejected]: (state) => {
             state.failedRecTrack = true;

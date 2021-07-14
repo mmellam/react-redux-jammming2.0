@@ -35,20 +35,17 @@ const TopTracks = (props) => {
     };
 
     const onClickGetRecommendations = () => {
-        console.log(selectedTracks);
         let queryString = '';
         for (let track of selectedTracks) {
-            console.log(track.id)
             queryString += track.id + '%2C';
         }
         if (showBrowseOptions) {
             queryString += '&';
-            console.log(browseOptions)
+            //console.log(browseOptions)
             for (let option of browseOptions) {
                 queryString += option.name + '=' + option.value + '&';
             }
         }
-        console.log(queryString)
         dispatch(getTrackBasedRecommendations(queryString));
     };
 
@@ -66,7 +63,7 @@ const TopTracks = (props) => {
 
     return (
         <div className='top-tracks'>
-            <h3>Your Top Tracks</h3>
+            <h3 className='small-heading'>Your Top Tracks</h3>
             <TopTrackList tracks={topTracks} />
             {limitExceededTracks && <p className='limit'>Please select a maximum of 5 tracks</p>}
             <button className='rounded-button filter-button' type='button' onClick={onClickDisplayOptions}>Select song characteristics</button>

@@ -1,4 +1,4 @@
-/* colors
+/* colors:
 font                    #062531
 button                  #439cbc
 button hover            #114255
@@ -6,23 +6,40 @@ light color             #d9edf5
 Spotify resting color   #1db954
 */
 
+/* App styles */
+
 .app {
   background-color: rgb(249, 250, 250);
   min-width: min-content;
   margin: 0 auto;
   min-height: 100vh;
   display: grid;
-  grid-template: 1fr 3rem / 220px 1fr;
+  grid-template: 1fr 2rem / 220px 1fr;
   gap: 0.5rem;
   color: #062531;
+  background-color: #11425577;
+  background-image: url(https://images.pexels.com/photos/3391930/pexels-photo-3391930.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-3391930.jpg&fm=jpg) ;
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode: multiply;
 }
+
+footer {
+  font-size: 0.63rem;
+  font-family: 'Nunito', sans-serif;
+  color: rgba(177, 176, 176, 0.705);
+  margin-bottom: 0.7rem;
+  justify-self: center;
+  align-self: flex-end;
+}
+
+/* Navbar styles */
 
 .navbar {
   grid-area: 1 / 1 / 3 / 2;
   height: 100%;
   background-color: rgb(250, 250, 250);
   padding: 0 2rem;
-  -webkit-box-shadow: 5px 5px 28px 4px rgba(54, 19, 87, 0.048);
   box-shadow: 5px 5px 50px 4px rgba(6, 79, 121, 0.055);
   display: flex;
   flex-wrap: wrap;
@@ -68,6 +85,8 @@ li:hover {
   font-weight: 800;
 }
 
+/* Button styles */
+
 .rounded-button {
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
@@ -97,14 +116,7 @@ li:hover {
   margin-right: 0.3rem;
 }
 
-.app footer {
-  font-size: 0.63rem;
-  font-family: 'Nunito', sans-serif;
-  color: rgba(177, 176, 176, 0.705);
-  margin-bottom: 0.7rem;
-  justify-self: center;
-  align-self: flex-end;
-}
+/* Start page and About page styles */
 
 .start, .about {
   justify-self: center;
@@ -131,6 +143,7 @@ li:hover {
   max-width: 350px;
 }
 
+/* Media queries */
 
 @media only screen and (max-width: 870px) {
   .app {

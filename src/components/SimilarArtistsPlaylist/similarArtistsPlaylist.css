@@ -26,13 +26,6 @@
   line-height: 1.4;
 }
 
-.top-artists h3 {
-  font-size: 0.83rem;
-  font-weight: 500;
-  margin: 0 0 0.5rem 0;
-  padding: 0;
-}
-
 .top-artists-list {
   display: grid;
   grid-template: 1fr / repeat(auto-fill, 10rem);

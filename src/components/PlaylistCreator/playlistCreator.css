@@ -7,6 +7,7 @@
 .playlist-creator-heading {
   grid-area: 1 / 2 / 2 / 6;
   margin: 1.5rem 0 0 0;
+  color:rgb(234, 249, 255);
 }
 
 .playlist-creator-heading h2 {
@@ -66,7 +67,6 @@
   min-width: min-content;
   min-height: 100px;
   max-height: 630px;
-  -webkit-box-shadow: 5px 5px 28px 4px rgba(6, 79, 121, 0.075);
   box-shadow: 5px 5px 35px 4px rgba(6, 79, 121, 0.075);
 }
 

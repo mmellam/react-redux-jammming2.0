@@ -23,10 +23,9 @@ const TopArtists = (props) => {
     const selectedArtists = useSelector(selectSelectedArtists);
 
     const onClickGetRecommendations = () => {
-        console.log(selectedArtists);
+        //console.log(selectedArtists);
         let queryString = '';
         for (let artist of selectedArtists) {
-            console.log(artist.id)
             queryString += artist.id + '%2C';
         }
         dispatch(getArtistBasedRecommendations(queryString));
@@ -46,7 +45,7 @@ const TopArtists = (props) => {
 
     return (
         <div className='top-artists'>
-            <h3>Your Top Artists</h3>
+            <h3 className='small-heading'>Your Top Artists</h3>
             <TopArtistsList artists={topArtists}/>
             {limitExceeded && <p className='limit'>Please select a maximum of 5 artists</p>}
             {renderButton()}

@@ -91,7 +91,6 @@ const playlistCreatorSlice = createSlice({
             state.playlistSaved = false;
         },
         [saveCreatedPlaylist.fulfilled]: (state) => {
-            //console.log(action.payload)
             state.failedPlaylist = false;
             state.playlistSaved = true;
             state.newPlaylist = [];
