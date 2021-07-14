@@ -97,7 +97,7 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
 const logout = () => {
     window.sessionStorage.clear();
     window.history.pushState('Access Token', null, '/');
-    window.location = 'http://localhost:3000/';
+    window.location = 'https://heuristic-jones-2f107f.netlify.app/';
 };
 
 export { onClickGetAccessToken, checkTokenExpiry, savePlaylistToSpotify, logout };
