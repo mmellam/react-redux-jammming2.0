@@ -12,6 +12,7 @@ import ErrorMessage from '../NavBar/ErrorMessage';
 
 const TopArtists = (props) => {
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(clearSelectedArtists());
         dispatch(getTopArtists());
@@ -28,7 +29,6 @@ const TopArtists = (props) => {
             console.log(artist.id)
             queryString += artist.id + '%2C';
         }
-        console.log(queryString)
         dispatch(getArtistBasedRecommendations(queryString));
     };
 

@@ -99,6 +99,7 @@ const similarArtistsPlaylistSlice = createSlice({
         },
         clearSelectedArtists: (state) => {
             state.selectedArtists = [];
+            state.artistPlaylistSaved = false;
         }
     },
     extraReducers: {

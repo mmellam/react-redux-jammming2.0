@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TrackList from './TrackList';
 import logo from './Spotify_Icon_RGB_White.png';
 import ErrorMessage from '../NavBar/ErrorMessage';
+import { resetPlaylistSaved } from '../../features/playlistCreator/playlistCreatorSlice';
 
 
 const NewPlaylist = (props) => {
     const dispatch = useDispatch();
     const [playlistName, setPlaylistName] = useState('New Playlist');
+
+    useEffect(() => {
+        dispatch(resetPlaylistSaved());
+    }, [dispatch]);
 
     const handleNameChange = (e) => {
         setPlaylistName(e.target.value);
@@ -26,6 +31,8 @@ const NewPlaylist = (props) => {
         const trackUris = props.tracks.map(track => track.uri);
         dispatch(props.savePlaylist({ playlistName, trackUris }));
         setPlaylistName('New Playlist');
+        const trackArray = Array.from(document.getElementsByClassName('track'));
+        trackArray.forEach((track) => track.style.backgroundColor = '');
     };
 
     if (props.failedPlaylist) {

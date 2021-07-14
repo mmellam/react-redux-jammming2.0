@@ -14,7 +14,6 @@ import ConnectButton from './components/NavBar/ConnectButton';
 import LogoutButton from './components/NavBar/LogoutButton';
 import Start from './components/NavBar/Start';
 import About from './components/NavBar/About';
-import { openNav } from './domfunctions';
 
 function App() {
   return (  
@@ -63,7 +62,7 @@ function App() {
                 <PlaylistCreator />
             </Route>
         </Switch>
-        <footer>App built using Spotify Web API, inspired by Codecademy front-end web development project submission. By Melanie Bucher, 2021.</footer>
+        <footer>React-Redux app built using the Spotify Web API by Melanie Bucher (2021).</footer>
       </div>  
     </Router>
   );

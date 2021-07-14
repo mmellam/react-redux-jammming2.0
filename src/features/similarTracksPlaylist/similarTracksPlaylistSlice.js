@@ -105,6 +105,7 @@ const similarTracksPlaylistSlice = createSlice({
         },
         clearSelectedTracks: (state) => {
             state.selectedTracks = [];
+            state.trackPlaylistSaved = false;
         },
         addOption: (state, action) => {
             if (!state.browseOptions.find((option) => option.name === action.payload.name)) {

@@ -56,6 +56,9 @@ const playlistCreatorSlice = createSlice({
         },
         removeTrack: (state, action) => {
             state.newPlaylist = state.newPlaylist.filter((track) => track.id !== action.payload);
+        },
+        resetPlaylistSaved: (state) => {
+            state.playlistSaved = false;
         }
     },
     extraReducers: {
@@ -100,7 +103,7 @@ const playlistCreatorSlice = createSlice({
     }
 });
 
-export const { addTrack, removeTrack } = playlistCreatorSlice.actions;
+export const { addTrack, removeTrack, resetPlaylistSaved } = playlistCreatorSlice.actions;
 
 export const selectSearchResults = (state) => state.playlistCreator.searchResults;
 export const selectNewPlaylist = (state) => state.playlistCreator.newPlaylist;
