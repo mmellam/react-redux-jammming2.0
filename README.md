@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Jammming 2.0.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A playlist creator app to save multiple songs to a Spotify playlist, get recommendations based on user selected tracks and artists, and search for similar songs with user preferred characteristics such as energy, danceability, or acousticness.
 
-## Available Scripts
+## Technologies 
+React, Redux, Redux Toolkit
 
-In the project directory, you can run:
+## Usage
 
-### `npm start`
+Run npm install inside the root folder to install on your local machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Note: This app requires a Spotify account. Upon connecting, the app needs authorization to read your top artists and tracks and to create a playlist to your account. The app works as client side only and your Spotify data is not stored on any server.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## API information
 
-### `npm test`
+The Spotify Web API returns JSON.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Endpoints used:
 
-### `npm run build`
+- accounts.spotify.com/authorize
+- api.spotify.com/v1/search
+- api.spotify.com/v1/me
+- api.spotify.com/v1/users
+- api.spotify.com/v1/playlists
+- api.spotify.com/v1/me/top/artists
+- api.spotify.com/v1/me/top/tracks
+- api.spotify.com/v1/recommendations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Required scopes: playlist-modify-public, user-top-read
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Inspiration
+This project is based on an exercise in the Front-End Engineering course from codecademy.com. I used React-Redux, RKT and React Router instead of pure React and expanded on the functionality by getting users' top tracks and artists and providing the option to select up to 5 of them to get specific recommendations. Further I included a feature that lets users choose their preferred song characteristics for specific search and browsing. A new UI was implemented, too.
