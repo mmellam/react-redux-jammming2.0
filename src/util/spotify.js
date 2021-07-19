@@ -1,5 +1,5 @@
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-const redirectUri = 'https://heuristic-jones-2f107f.netlify.app/start/';
+const redirectUri = 'https://project-jammming-2-0-0.netlify.app/start/';
 //const redirectUri = 'http://localhost:3000/start/';
 
 // Implicit grant flow authentication for Spotify API
@@ -97,7 +97,7 @@ const savePlaylistToSpotify = async (playlistToCreate) => {
 const logout = () => {
     window.sessionStorage.clear();
     window.history.pushState('Access Token', null, '/');
-    window.location = 'https://heuristic-jones-2f107f.netlify.app/';
+    window.location = 'https://project-jammming-2-0-0.netlify.app/';
 };
 
 export { onClickGetAccessToken, checkTokenExpiry, savePlaylistToSpotify, logout };

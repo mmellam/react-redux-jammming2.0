@@ -8,7 +8,7 @@ export const search = createAsyncThunk(
         const accessToken = window.sessionStorage.accessToken;
         if (!accessToken) {
             window.sessionStorage.previousUrl = window.location;
-            window.location = 'http://localhost:3000/start/';
+            window.location = 'https://project-jammming-2-0-0.netlify.app/start/';
             onClickGetAccessToken(); 
         }
         if (!checkTokenExpiry()) {

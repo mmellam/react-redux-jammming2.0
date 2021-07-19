@@ -1,6 +1,7 @@
 {
   "name": "jammming2.0",
   "version": "0.1.0",
+  "author": "Melanie Bucher",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
