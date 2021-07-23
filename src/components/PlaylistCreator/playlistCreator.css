@@ -7,7 +7,7 @@
 .playlist-creator-heading {
   grid-area: 1 / 2 / 2 / 6;
   margin: 1.5rem 0 0 0;
-  color:rgb(234, 249, 255);
+  color:rgb(250, 254, 255);
 }
 
 .playlist-creator-heading h2 {
@@ -37,12 +37,12 @@
   border-radius: 20px;
   font-size: 0.73rem;
   font-family: 'Nunito', sans-serif;
-  color: #439cbc;
+  color: rgba(27,114,148,1);
 }
 
 .search-bar input:focus {
   outline: none;
-  border: .5px solid #439cbc;
+  border: .5px solid rgba(27,114,148,1);
 }
 
 .search-bar .search-button {
@@ -97,7 +97,7 @@
   border: 0;
   padding: 0.33rem;
   cursor: text;
-  color: #439cbc;
+  color: rgba(27,114,148,1);
   border-radius: 5px;
   transition: all 0.3s;
 }
