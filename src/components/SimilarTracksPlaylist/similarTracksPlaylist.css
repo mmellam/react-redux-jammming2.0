@@ -1,6 +1,6 @@
 .track-playlist {
   display: grid;
-  grid-template: 6.5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
+  grid-template: 7.5rem auto 1fr / 1.5rem minmax(150px, 400px) 1px 1px minmax(150px, 400px) minmax(1rem, 1fr);
   gap: 0.5rem;
 }
 
