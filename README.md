@@ -30,3 +30,11 @@ Required scopes: playlist-modify-public, user-top-read
 
 ## Inspiration
 This project is based on an exercise in the Front-End Engineering course from codecademy.com. I used React-Redux, RKT and React Router instead of pure React and expanded on the functionality by getting users' top tracks and artists and providing the option to select up to 5 of them to get specific recommendations. Further I included a feature that lets users choose their preferred song characteristics for specific search and browsing. A new UI was implemented, too.
+
+## UI Visuals
+![image](https://drive.google.com/uc?export=view&id=13slpulFu3DtsvkN836jbtbi-MNeqPh8K)
+
+![image](https://drive.google.com/uc?export=view&id=1EwQxwMASupWvHYtbDRJjUFFBhDMxtaBd)
+
+![image](https://drive.google.com/uc?export=view&id=1VA7HAFVe3m5qo53LMP0Qifc5YnhO3O3n)
+
