@@ -2,14 +2,17 @@
 
 A playlist creator app to save multiple songs to a Spotify playlist, get recommendations based on user selected tracks and artists, and search for similar songs with user preferred characteristics such as energy, danceability, or acousticness.
 
+## ! Please note for usage
+This app is deployed at https://project-jammming-2-0-0.netlify.app/.
+
+This app requires a Spotify account and is only fully functional with an existing Spotify account, because user data statistics are used. In addition, according to the Spotify Web API rules, new accounts need to be activated in my developer dashboard for additional users. This means other existing accounts cannot connect to Jammming without prior activation. Therefore, I created a **test account that can be used to test the app**. The credentials for this account **can be found in my CV.**
+
+To visit Spotify and the saved playlists, go to https://open.spotify.com/.
+
+Upon connecting, the app needs authorization to read your account's top artists and tracks and to create a playlist to the connected account. The app works as client side only and your Spotify data is not stored on any server.
+
 ## Technologies 
-React, Redux, Redux Toolkit
-
-## Usage
-
-Run npm install inside the root folder to install on your local machine.
-
-Note: This app requires a Spotify account. Upon connecting, the app needs authorization to read your top artists and tracks and to create a playlist to your account. The app works as client side only and your Spotify data is not stored on any server.
+HTML, CSS, JavaScript, React, Redux, Redux Toolkit
 
 ## API information
 
